@@ -135,7 +135,8 @@
                                     desc.sdp.replace( 'b=AS:30', 'b=AS:1638400' )
                                     this.localPeerConnection.setLocalDescription(desc, () => {
                                         console.log('answer offer')
-                                        this.websocket.send(JSON.stringify({to: fromUser, from: this.userName, description: desc }));
+                                        this.toUser = fromUser
+                                        this.websocket.send(JSON.stringify({to: this.toUser, from: this.userName, description: desc }));
                                     }, (err) => window.alert(err));
                                 }, (err) => window.alert(err));
                             }
