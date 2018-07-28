@@ -81,7 +81,7 @@
     <script src="https://cdn.jsdelivr.net/npm/vuetify/dist/vuetify.js"></script>
     <script>
         AdapterJS.webRTCReady(function(isUsingPlugin) {
-            if (!isUsingPlugin) { window.alert('browser not supported!'); return }
+            if (isUsingPlugin) { window.alert('browser not supported!'); return }
             // ice configurations
             var iceConfig = {
                 iceServers: [
