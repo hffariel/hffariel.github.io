@@ -154,7 +154,6 @@
                         this.websocket.onclose = () => window.location.reload(true);
                         this.websocket.onerror = (evt) => window.alert('加入失败，存在重复的用户名或者网络连接有问题');
                         this.websocket.onmessage = (evt) => {
-                            console.log(evt)
                             let json = JSON.parse(evt.data)
                             if (json.roomUsers) {
                                 this.roomUsers = json.roomUsers
@@ -205,7 +204,7 @@
                             bytesReceived += data.byteLength;
                             incomingFileData.push( data );
                             this.recvProgress = ((bytesReceived / incomingFileInfo.fileSize ) * 100).toFixed( 1 )
-                            console.log(this.recvProgress)
+                            // console.log(this.recvProgress)
                             if( bytesReceived === incomingFileInfo.fileSize ) {
                                 endDownload();
                             }
