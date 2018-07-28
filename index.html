@@ -182,8 +182,10 @@
                         this.localPeerConnection.oniceconnectionstatechange = e => console.log(e);
                         this.localPeerConnection.onicecandidate = (event) => {
                             if (event.candidate) {
-                                console.log('send candidate')
-                                this.websocket.send(JSON.stringify({to: this.toUser, from: this.userName, candidate: event.candidate}))
+                                setTimeout(() => {
+                                    console.log('send candidate')
+                                    this.websocket.send(JSON.stringify({to: this.toUser, from: this.userName, candidate: event.candidate}))
+                                }, 2000)
                             }
                         }
                     },
