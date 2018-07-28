@@ -168,7 +168,7 @@
                                     this.initPeerConnection()
                                     this.localPeerConnection.ondatachannel = (event) => {
                                         answererDataChannel = event.channel;
-                                        this.setChannelEvents(answererDataChannel);
+                                        this.setChannelEvents(answererDataChannel, true);
                                     }
                                 }
                                 console.log('recv ' + json.description.type)
@@ -190,7 +190,7 @@
                             }
                         }
                     },
-                    setChannelEvents(channel) {
+                    setChannelEvents(channel, isReceiving) {
                         var incomingFileInfo;
                         var incomingFileData;
                         var bytesReceived;
@@ -236,9 +236,9 @@
                             }
                         };
                         channel.onopen = () => {
-                            if (this.toUser.length == 0) return
+                            if (isReceiving == 0) return
                             this.sendProgress = 0; this.recvProgress = 0;
-                            const BYTES_PER_CHUNK = 10240;
+                            const BYTES_PER_CHUNK = 10240 * 3;
                             var file = document.getElementById('file-' + this.toUser).files[0];
                             var currentChunk = 0;
                             var fileReader = new FileReader();
