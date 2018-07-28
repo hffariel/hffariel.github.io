@@ -87,12 +87,7 @@
                     credential: "farielclaire", 
                     username: "fariel"
                 }
-            ],
-            peerConnectionConstraints: {
-                optional: [
-                    {"DtlsSrtpKeyAgreement": false}
-                ]
-            }
+            ]
         }
         const offerOptions = {
             offerToReceiveAudio: 1,
@@ -111,7 +106,7 @@
                 setLocalDescription(user) {
                     this.toUser = user
                     this.initPeerConnection()
-                    this.setChannelEvents(this.localPeerConnection.createDataChannel('channel', {maxRetransmits: 10, ordered: true}));
+                    this.setChannelEvents(this.localPeerConnection.createDataChannel('channel' + new Date().getTime(), {maxRetransmits: 10, ordered: true}));
                     // exchange icecandinates
                     this.localPeerConnection.createOffer().then((description) => {
                         description.sdp.replace( 'b=AS:30', 'b=AS:1638400' )
