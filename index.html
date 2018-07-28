@@ -115,9 +115,8 @@
                             description.sdp.replace( 'b=AS:30', 'b=AS:1638400' )
                             this.localPeerConnection.setLocalDescription(description, () => {
                                 // // after this function returns, pc1 will start firing icecandidate events
-                                setTimeout(() => {
-                                    this.websocket.send(JSON.stringify({to: this.toUser, from: this.userName, description: description}))
-                                }, 2000)
+                                this.websocket.send(JSON.stringify({to: this.toUser, from: this.userName, description: description}))
+                                console.log('send offer')
                             }, (err) => {
                                 window.alert(err.message);
                             });
@@ -135,9 +134,8 @@
                                 this.localPeerConnection.createAnswer((desc) => {
                                     desc.sdp.replace( 'b=AS:30', 'b=AS:1638400' )
                                     this.localPeerConnection.setLocalDescription(desc, () => {
-                                        setTimeout(() => {
-                                            this.websocket.send(JSON.stringify({to: fromUser, from: this.userName, description: desc }));
-                                        }, 2000)
+                                        console.log('answer offer')
+                                        this.websocket.send(JSON.stringify({to: fromUser, from: this.userName, description: desc }));
                                     }, (err) => window.alert(err));
                                 }, (err) => window.alert(err));
                             }
@@ -162,27 +160,29 @@
                                 this.roomUsers = json.roomUsers
                             }
                             if (json.candidate) {
-                                this.initPeerConnection()
+                                console.log('recv candidate')
                                 this.localPeerConnection.addIceCandidate(new RTCIceCandidate(json.candidate));
                             }
                             if (json.description) {
                                 if (json.description.type == 'offer')  {
+                                    this.initPeerConnection()
                                     this.localPeerConnection.ondatachannel = (event) => {
                                         answererDataChannel = event.channel;
                                         this.setChannelEvents(answererDataChannel);
                                     }
                                 }
+                                console.log('recv ' + json.description.type)
                                 this.setRemoteSDP(json.from, json.description)
                             }
                         }
                     },
                     initPeerConnection() {
                         console.log('initPeerConnection')
-                        if (this.localPeerConnection.addIceCandidate) return
                         this.localPeerConnection = new RTCPeerConnection(iceConfig);
                         this.localPeerConnection.oniceconnectionstatechange = e => console.log(e);
                         this.localPeerConnection.onicecandidate = (event) => {
                             if (event.candidate) {
+                                console.log('send candidate')
                                 this.websocket.send(JSON.stringify({to: this.toUser, from: this.userName, candidate: event.candidate}))
                             }
                         }
