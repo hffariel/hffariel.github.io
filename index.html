@@ -170,6 +170,7 @@
                     }
                 },
                 initPeerConnection() {
+                    console.log('initPeerConnection')
                     this.localPeerConnection = new RTCPeerConnection(iceConfig);
                     this.localPeerConnection.oniceconnectionstatechange = e => console.log(e);
                     this.localPeerConnection.onicecandidate = (event) => {
