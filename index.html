@@ -236,7 +236,7 @@
                             }
                         };
                         channel.onopen = () => {
-                            if (isReceiving == 0) return
+                            if (isReceiving) return
                             this.sendProgress = 0; this.recvProgress = 0;
                             const BYTES_PER_CHUNK = 10240 * 3;
                             var file = document.getElementById('file-' + this.toUser).files[0];
