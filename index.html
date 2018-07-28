@@ -162,11 +162,11 @@
                                 this.roomUsers = json.roomUsers
                             }
                             if (json.candidate) {
+                                this.initPeerConnection()
                                 this.localPeerConnection.addIceCandidate(new RTCIceCandidate(json.candidate));
                             }
                             if (json.description) {
                                 if (json.description.type == 'offer')  {
-                                    this.initPeerConnection()
                                     this.localPeerConnection.ondatachannel = (event) => {
                                         answererDataChannel = event.channel;
                                         this.setChannelEvents(answererDataChannel);
@@ -178,6 +178,7 @@
                     },
                     initPeerConnection() {
                         console.log('initPeerConnection')
+                        if (this.localPeerConnection.addIceCandidate) return
                         this.localPeerConnection = new RTCPeerConnection(iceConfig);
                         this.localPeerConnection.oniceconnectionstatechange = e => console.log(e);
                         this.localPeerConnection.onicecandidate = (event) => {
