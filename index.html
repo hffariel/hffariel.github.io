@@ -263,6 +263,8 @@
                             };
                             this.toUser = ''
                         };
+                        channel.onerror = (e) => console.log(e)
+                        channel.onclose = (e) => console.log(e)
                     },
                     goToGithub() {
                         window.open('https://github.com/hffariel/webrtc-file-transfer')
