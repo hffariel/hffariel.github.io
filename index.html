@@ -86,7 +86,7 @@
             var iceConfig = {
                 iceServers: [
                     {
-                        url: "turn:67.216.222.150:3478?transport=tcp",  
+                        url: "turn:67.216.222.150:3478",  
                         credential: "farielclaire", 
                         username: "fariel"
                     }
@@ -115,7 +115,9 @@
                             description.sdp.replace( 'b=AS:30', 'b=AS:1638400' )
                             this.localPeerConnection.setLocalDescription(description, () => {
                                 // // after this function returns, pc1 will start firing icecandidate events
-                                this.websocket.send(JSON.stringify({to: this.toUser, from: this.userName, description: description}))
+                                setTimeout(() => {
+                                    this.websocket.send(JSON.stringify({to: this.toUser, from: this.userName, description: description}))
+                                }, 2000)
                             }, (err) => {
                                 window.alert(err.message);
                             });
@@ -133,7 +135,9 @@
                                 this.localPeerConnection.createAnswer((desc) => {
                                     desc.sdp.replace( 'b=AS:30', 'b=AS:1638400' )
                                     this.localPeerConnection.setLocalDescription(desc, () => {
-                                        this.websocket.send(JSON.stringify({to: fromUser, from: this.userName, description: desc }));
+                                        setTimeout(() => {
+                                            this.websocket.send(JSON.stringify({to: fromUser, from: this.userName, description: desc }));
+                                        }, 2000)
                                     }, (err) => window.alert(err));
                                 }, (err) => window.alert(err));
                             }
