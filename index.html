@@ -10,8 +10,8 @@
         <meta name="apple-mobile-web-app-title" content="webrtc">
         <title>webrtc</title>
         <link href='https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons' rel="stylesheet">
-        <link href="https://cdn.jsdelivr.net/npm/vuetify/dist/vuetify.min.css" rel="stylesheet">
-        <script src="https://cdn.temasys.io/adapterjs/0.15.x/adapter.min.js"></script>
+        <link href="https://cdn.bootcss.com/vuetify/1.1.0-beta.0/vuetify.min.css" rel="stylesheet">
+        <script src="https://cdn.bootcss.com/adapterjs/0.15.0/adapter.min.js"></script>
     </head>
     <body style="background: #f5f5f5; overflow-y: hidden;">
         <div id="connect">
@@ -51,25 +51,30 @@
                     </v-form>
                 </div>
                 <div v-else>
-                    <v-card style="margin: 30px;">
+                    <v-card style="margin: 10px;">
                         <v-card-title primary-title>
-                            <div>
+                            <div style="width: 100%">
                                 <h3 class="headline mb-0">房间:{{roomName}}&nbsp;&nbsp;&nbsp;&nbsp;我:{{userName}}</h3>
-                                <div v-if="sendProgress > 0 || recvProgress > 0">状态：{{sendProgress > 0 ? '发送进度：' + sendProgress + '%' : '接收进度：' + recvProgress + '%'}}</div>
-                                <div v-else>空闲中</div>
+                                <v-text-field
+                                    v-model="sendData"
+                                    placeholder="要发送的内容"
+                                ></v-text-field>
+                                <div v-if="sendProgress > 0 || recvProgress > 0">文件收发状态：{{sendProgress > 0 ? '发送进度：' + sendProgress + '%' : '接收进度：' + recvProgress + '%'}}</div>
+                                <a v-if="recvData.length > 0" :href="recvData" target="_blank">收到剪贴板内容：{{recvData}}</a>
+                                
                             </div>
                         </v-card-title>
                     </v-card>
                     <v-data-table
-                        style="margin: 30px;"
+                        style="margin: 31px;"
                         :headers="[{text: '发送文件', value: '发送文件'}, {text: '房间用户', value: '房间用户'}]"
                         :items="roomUsers.filter(u => u != userName)"
                         hide-actions
                         class="elevation-1"
                     >
                         <template slot="items" slot-scope="props">
-                            <td><input :id="'file-' + props.item" type="file"/></td>
-                            <td><v-btn @click="setLocalDescription(props.item)" style="background: purple" color="info">发送->{{ props.item }}</v-btn></td>
+                            <td><v-btn @click="sendInputData(props.item)" style="background: purple" color="info">发送内容->{{ props.item }}</v-btn></td>
+                            <td><v-btn @click="clickSendFile(props.item)" style="background: purple" color="info">发送文件->{{ props.item }}</v-btn><input @change="setLocalDescription(props.item)" style="display: none;" :id="'file-' + props.item" type="file"/></td>
                         </template>
                     </v-data-table>
                 </div>
@@ -77,8 +82,8 @@
         </div>
     </body>
 
-    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/vuetify/dist/vuetify.js"></script>
+    <script src="https://cdn.bootcss.com/vue/2.5.17-beta.0/vue.min.js"></script>
+    <script src="https://cdn.bootcss.com/vuetify/1.1.0-beta.0/vuetify.min.js"></script>
     <script>
         AdapterJS.webRTCReady(function(isUsingPlugin) {
             if (isUsingPlugin) { window.alert('browser not supported!'); return }
@@ -103,9 +108,19 @@
             var webrtcEle = new Vue({
                 el: '#connect',
                 data: {
-                    sendProgress: 0, recvProgress: 0, websocket: {}, localPeerConnection: {}, dataChannel: {}, roomName: getCookie('roomName'), userName: getCookie('userName'), toUser: '', roomUsers: []
+                    sendData: '', recvData: '', sendProgress: 0, recvProgress: 0, websocket: {}, localPeerConnection: {}, dataChannel: {}, roomName: getCookie('roomName'), userName: getCookie('userName'), toUser: '', roomUsers: []
+                },
+                mounted() {
+                    if (this.userName.length > 0 && this.roomName.length > 0) this.connectRoom()
                 },
                 methods: {
+                    clickSendFile(id) {
+                        document.getElementById('file-' + id).click()
+                    },
+                    sendInputData(user) {
+                        this.toUser = user
+                        this.websocket.send(JSON.stringify({to: this.toUser, from: this.userName, textdata: this.sendData}))
+                    },
                     setLocalDescription(user) {
                         this.toUser = user
                         this.initPeerConnection()
@@ -152,10 +167,13 @@
                         this.websocket.onopen = (evt) => {
                             console.log("websocket connected")
                         }
-                        this.websocket.onclose = () => window.location.reload(true);
-                        this.websocket.onerror = (evt) => window.alert('加入失败，存在重复的用户名或者网络连接有问题');
+                        this.websocket.onclose = () => { this.roomUsers = [] }
+                        this.websocket.onerror = (evt) => { window.alert('加入失败，存在重复的用户名或者网络连接有问题') };
                         this.websocket.onmessage = (evt) => {
                             let json = JSON.parse(evt.data)
+                            if (json.textdata) {
+                                this.recvData = json.textdata
+                            }
                             if (json.roomUsers) {
                                 this.roomUsers = json.roomUsers
                             }
