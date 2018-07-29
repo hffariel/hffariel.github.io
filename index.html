@@ -258,11 +258,18 @@
                                 let p = ((BYTES_PER_CHUNK * currentChunk / file.size ) * 100).toFixed( 0 )
                                 this.sendProgress = (p > 100 ? 100 : p)
                                 if ( BYTES_PER_CHUNK * currentChunk < file.size ) {
+                                    if (channel.bufferedAmount > CHANNEL_BUFFER_MAX) {
+                                        setTimeout(function () {
+                                            this._chunksInChannel(chunks, chunkIdx, fileName, channel, callback);
+                                        }.bind(this), 500);
+                                        doNext = false;
+                                    }
                                     readNextChunk();
                                 }
                             };
                             this.toUser = ''
                         };
+                        channel.onbufferedamountlow = (e) => console.log(e)
                         channel.onerror = (e) => console.log(e)
                         channel.onclose = (e) => console.log(e)
                     },
