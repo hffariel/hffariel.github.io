@@ -61,9 +61,11 @@
                                 ></v-text-field>
                                 <div v-if="sendProgress > 0 || recvProgress > 0">文件收发状态：{{sendProgress > 0 ? '发送进度：' + sendProgress + '%' : '接收进度：' + recvProgress + '%'}}</div>
                                 <a v-if="recvData.length > 0" :href="recvData" target="_blank">收到剪贴板内容：{{recvData}}</a>
-                                
                             </div>
                         </v-card-title>
+                        <v-layout row wrap>
+                            <v-btn @click="logout()" style="background: purple" color="info">退出登录</v-btn>
+                        </v-layout>
                     </v-card>
                     <v-data-table
                         style="margin: 31px;"
@@ -292,6 +294,10 @@
                     },
                     goToGithub() {
                         window.open('https://github.com/hffariel/webrtc-file-transfer')
+                    },
+                    logout() {
+                        clearCookies()
+                        this.roomUsers = []
                     }
                 }
             });
@@ -308,6 +314,13 @@
                 return unescape(arr[2]);
             else
                 return '';
+        }
+        function clearCookies() {
+            var keys=document.cookie.match(/[^ =;]+(?=\=)/g);
+            if (keys) {
+                for (var i =  keys.length; i--;)
+                    document.cookie=keys[i]+'=0;expires=' + new Date( 0).toUTCString()
+            }
         }
     </script>
 </html>
