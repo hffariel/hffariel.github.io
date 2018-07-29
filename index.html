@@ -60,7 +60,7 @@
                                     placeholder="要发送的内容"
                                 ></v-text-field>
                                 <div v-if="sendProgress > 0 || recvProgress > 0">文件收发状态：{{sendProgress > 0 ? '发送进度：' + sendProgress + '%' : '接收进度：' + recvProgress + '%'}}</div>
-                                <a v-if="recvData.length > 0" :href="recvData" target="_blank">收到剪贴板内容：{{recvData}}</a>
+                                <div v-if="recvData.length > 0">>收到剪贴板内容：<a :href="recvData" target="_blank">{{recvData}}</a></div
                             </div>
                         </v-card-title>
                         <v-layout row wrap>
