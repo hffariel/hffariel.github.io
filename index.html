@@ -236,6 +236,7 @@
                             anchor.href = URL.createObjectURL( blob );
                             anchor.download = incomingFileInfo.fileName;
                             anchor.textContent = 'XXXXXXX';
+                            anchor.target = "_blank"
 
                             if( anchor.click ) {
                                 anchor.click();
