@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Apache Doris 发布流程 | Apache Doris</title>
+    <meta name="description" content="Apache Doris">
+    <meta name="generator" content="VuePress 1.3.1">
+    
+    
+    <link rel="preload" href="/master/assets/css/0.styles.8fc2cc99.css" as="style"><link rel="preload" href="/master/assets/js/app.666e9eda.js" as="script"><link rel="preload" href="/master/assets/js/4.b1bd2948.js" as="script"><link rel="preload" href="/master/assets/js/3.b0b9349c.js" as="script"><link rel="preload" href="/master/assets/js/297.06710d04.js" as="script"><link rel="prefetch" href="/master/assets/js/10.376f7863.js"><link rel="prefetch" href="/master/assets/js/100.c24aa432.js"><link rel="prefetch" href="/master/assets/js/101.36e000d4.js"><link rel="prefetch" href="/master/assets/js/102.566a0c16.js"><link rel="prefetch" href="/master/assets/js/103.20170645.js"><link rel="prefetch" href="/master/assets/js/104.b9249450.js"><link rel="prefetch" href="/master/assets/js/105.015a67d3.js"><link rel="prefetch" href="/master/assets/js/106.c3c9584a.js"><link rel="prefetch" href="/master/assets/js/107.b90832ae.js"><link rel="prefetch" href="/master/assets/js/108.102102de.js"><link rel="prefetch" href="/master/assets/js/109.c16fb561.js"><link rel="prefetch" href="/master/assets/js/11.4d35a321.js"><link rel="prefetch" href="/master/assets/js/110.1704a767.js"><link rel="prefetch" href="/master/assets/js/111.b191228f.js"><link rel="prefetch" href="/master/assets/js/112.f04e6e1d.js"><link rel="prefetch" href="/master/assets/js/113.a0ad394f.js"><link rel="prefetch" href="/master/assets/js/114.ae8c252d.js"><link rel="prefetch" href="/master/assets/js/115.965aa898.js"><link rel="prefetch" href="/master/assets/js/116.360d1a8e.js"><link rel="prefetch" href="/master/assets/js/117.06ef36ab.js"><link rel="prefetch" href="/master/assets/js/118.409640af.js"><link rel="prefetch" href="/master/assets/js/119.44c18a0a.js"><link rel="prefetch" href="/master/assets/js/12.b0a98e60.js"><link rel="prefetch" href="/master/assets/js/120.7b7e00f1.js"><link rel="prefetch" href="/master/assets/js/121.390b3ee3.js"><link rel="prefetch" href="/master/assets/js/122.a4bbefd9.js"><link rel="prefetch" href="/master/assets/js/123.aee89d64.js"><link rel="prefetch" href="/master/assets/js/124.02cec812.js"><link rel="prefetch" href="/master/assets/js/125.5c77938d.js"><link rel="prefetch" href="/master/assets/js/126.9124b151.js"><link rel="prefetch" href="/master/assets/js/127.e5f9363a.js"><link rel="prefetch" href="/master/assets/js/128.282d9501.js"><link rel="prefetch" href="/master/assets/js/129.07aee470.js"><link rel="prefetch" href="/master/assets/js/13.431bc4d9.js"><link rel="prefetch" href="/master/assets/js/130.16ea0ef2.js"><link rel="prefetch" href="/master/assets/js/131.3c153128.js"><link rel="prefetch" href="/master/assets/js/132.ad52dd62.js"><link rel="prefetch" href="/master/assets/js/133.a2bf4960.js"><link rel="prefetch" href="/master/assets/js/134.dc253d16.js"><link rel="prefetch" href="/master/assets/js/135.32d22c09.js"><link rel="prefetch" href="/master/assets/js/136.9c7aa8e7.js"><link rel="prefetch" href="/master/assets/js/137.df3ed5db.js"><link rel="prefetch" href="/master/assets/js/138.e62ef96c.js"><link rel="prefetch" href="/master/assets/js/139.f263c9c5.js"><link rel="prefetch" href="/master/assets/js/14.e8e0c445.js"><link rel="prefetch" href="/master/assets/js/140.4bd27ada.js"><link rel="prefetch" href="/master/assets/js/141.95742074.js"><link rel="prefetch" href="/master/assets/js/142.f3281edb.js"><link rel="prefetch" href="/master/assets/js/143.ae32a4e7.js"><link rel="prefetch" href="/master/assets/js/144.af153d40.js"><link rel="prefetch" href="/master/assets/js/145.76e6d552.js"><link rel="prefetch" href="/master/assets/js/146.75135113.js"><link rel="prefetch" href="/master/assets/js/147.ad3e9c5c.js"><link rel="prefetch" href="/master/assets/js/148.b74023cf.js"><link rel="prefetch" href="/master/assets/js/149.87a044d4.js"><link rel="prefetch" href="/master/assets/js/15.e17dc5b6.js"><link rel="prefetch" href="/master/assets/js/150.c01a1ea5.js"><link rel="prefetch" href="/master/assets/js/151.558b7648.js"><link rel="prefetch" href="/master/assets/js/152.c65b70a1.js"><link rel="prefetch" href="/master/assets/js/153.909ab98b.js"><link rel="prefetch" href="/master/assets/js/154.68ae413e.js"><link rel="prefetch" href="/master/assets/js/155.9586b7c6.js"><link rel="prefetch" href="/master/assets/js/156.73051d0d.js"><link rel="prefetch" href="/master/assets/js/157.c7758679.js"><link rel="prefetch" href="/master/assets/js/158.2264ca5e.js"><link rel="prefetch" href="/master/assets/js/159.229fda1d.js"><link rel="prefetch" href="/master/assets/js/16.6d45a861.js"><link rel="prefetch" href="/master/assets/js/160.12296d7c.js"><link rel="prefetch" href="/master/assets/js/161.831b85c3.js"><link rel="prefetch" href="/master/assets/js/162.2fb7ce9d.js"><link rel="prefetch" href="/master/assets/js/163.744f13db.js"><link rel="prefetch" href="/master/assets/js/164.31e98650.js"><link rel="prefetch" href="/master/assets/js/165.86a52a4d.js"><link rel="prefetch" href="/master/assets/js/166.c23d1f93.js"><link rel="prefetch" href="/master/assets/js/167.647923b2.js"><link rel="prefetch" href="/master/assets/js/168.ec1b5351.js"><link rel="prefetch" href="/master/assets/js/169.901156e9.js"><link rel="prefetch" href="/master/assets/js/17.213c3ded.js"><link rel="prefetch" href="/master/assets/js/170.e363c575.js"><link rel="prefetch" href="/master/assets/js/171.f2186ef3.js"><link rel="prefetch" href="/master/assets/js/172.d5fbb978.js"><link rel="prefetch" href="/master/assets/js/173.0e060817.js"><link rel="prefetch" href="/master/assets/js/174.a5b8520d.js"><link rel="prefetch" href="/master/assets/js/175.04c936c2.js"><link rel="prefetch" href="/master/assets/js/176.3ce5e8b4.js"><link rel="prefetch" href="/master/assets/js/177.7ca4c230.js"><link rel="prefetch" href="/master/assets/js/178.1e6660d6.js"><link rel="prefetch" href="/master/assets/js/179.9fca8cb2.js"><link rel="prefetch" href="/master/assets/js/18.d274e5ee.js"><link rel="prefetch" href="/master/assets/js/180.c6760b6a.js"><link rel="prefetch" href="/master/assets/js/181.2fca36de.js"><link rel="prefetch" href="/master/assets/js/182.d738b3ff.js"><link rel="prefetch" href="/master/assets/js/183.d295d1c9.js"><link rel="prefetch" href="/master/assets/js/184.5da597a9.js"><link rel="prefetch" href="/master/assets/js/185.f9ac686e.js"><link rel="prefetch" href="/master/assets/js/186.7cd30e96.js"><link rel="prefetch" href="/master/assets/js/187.c0ce34d8.js"><link rel="prefetch" href="/master/assets/js/188.36b1133d.js"><link rel="prefetch" href="/master/assets/js/189.b46d303c.js"><link rel="prefetch" href="/master/assets/js/19.686635dd.js"><link rel="prefetch" href="/master/assets/js/190.300d695a.js"><link rel="prefetch" href="/master/assets/js/191.3245da2b.js"><link rel="prefetch" href="/master/assets/js/192.596de825.js"><link rel="prefetch" href="/master/assets/js/193.4ab2145b.js"><link rel="prefetch" href="/master/assets/js/194.536781ad.js"><link rel="prefetch" href="/master/assets/js/195.882d7045.js"><link rel="prefetch" href="/master/assets/js/196.19b484c0.js"><link rel="prefetch" href="/master/assets/js/197.85651d19.js"><link rel="prefetch" href="/master/assets/js/198.ca5762fe.js"><link rel="prefetch" href="/master/assets/js/199.300a521f.js"><link rel="prefetch" href="/master/assets/js/20.4ddd764c.js"><link rel="prefetch" href="/master/assets/js/200.cdff321d.js"><link rel="prefetch" href="/master/assets/js/201.1752460a.js"><link rel="prefetch" href="/master/assets/js/202.59927884.js"><link rel="prefetch" href="/master/assets/js/203.0a6405a2.js"><link rel="prefetch" href="/master/assets/js/204.f8e38dcb.js"><link rel="prefetch" href="/master/assets/js/205.93872c1c.js"><link rel="prefetch" href="/master/assets/js/206.2557b4db.js"><link rel="prefetch" href="/master/assets/js/207.c66f67b1.js"><link rel="prefetch" href="/master/assets/js/208.9d76fa33.js"><link rel="prefetch" href="/master/assets/js/209.9403cd25.js"><link rel="prefetch" href="/master/assets/js/21.409b54ff.js"><link rel="prefetch" href="/master/assets/js/210.46521b11.js"><link rel="prefetch" href="/master/assets/js/211.edacb206.js"><link rel="prefetch" href="/master/assets/js/212.0f042789.js"><link rel="prefetch" href="/master/assets/js/213.fcb1e6d0.js"><link rel="prefetch" href="/master/assets/js/214.9a642f8e.js"><link rel="prefetch" href="/master/assets/js/215.84815329.js"><link rel="prefetch" href="/master/assets/js/216.de1bdc85.js"><link rel="prefetch" href="/master/assets/js/217.c86886ad.js"><link rel="prefetch" href="/master/assets/js/218.a7ec52c5.js"><link rel="prefetch" href="/master/assets/js/219.fddb5871.js"><link rel="prefetch" href="/master/assets/js/22.58ae2d8f.js"><link rel="prefetch" href="/master/assets/js/220.5f8d749c.js"><link rel="prefetch" href="/master/assets/js/221.0bbcd77f.js"><link rel="prefetch" href="/master/assets/js/222.18511d7f.js"><link rel="prefetch" href="/master/assets/js/223.0de116dc.js"><link rel="prefetch" href="/master/assets/js/224.0591d30e.js"><link rel="prefetch" href="/master/assets/js/225.a81a6648.js"><link rel="prefetch" href="/master/assets/js/226.e6ad3e3a.js"><link rel="prefetch" href="/master/assets/js/227.cc6910c2.js"><link rel="prefetch" href="/master/assets/js/228.2503fa13.js"><link rel="prefetch" href="/master/assets/js/229.537c35ab.js"><link rel="prefetch" href="/master/assets/js/23.aa825e57.js"><link rel="prefetch" href="/master/assets/js/230.fa3e7143.js"><link rel="prefetch" href="/master/assets/js/231.35555755.js"><link rel="prefetch" href="/master/assets/js/232.dea51f54.js"><link rel="prefetch" href="/master/assets/js/233.72cadce6.js"><link rel="prefetch" href="/master/assets/js/234.0d951ca8.js"><link rel="prefetch" href="/master/assets/js/235.eb776f4e.js"><link rel="prefetch" href="/master/assets/js/236.e83ca596.js"><link rel="prefetch" href="/master/assets/js/237.983f3a0a.js"><link rel="prefetch" href="/master/assets/js/238.9d549f00.js"><link rel="prefetch" href="/master/assets/js/239.bb881f70.js"><link rel="prefetch" href="/master/assets/js/24.e941e5e2.js"><link rel="prefetch" href="/master/assets/js/240.33a2a5e4.js"><link rel="prefetch" href="/master/assets/js/241.f1274e52.js"><link rel="prefetch" href="/master/assets/js/242.122b2773.js"><link rel="prefetch" href="/master/assets/js/243.61ecf34b.js"><link rel="prefetch" href="/master/assets/js/244.28fba924.js"><link rel="prefetch" href="/master/assets/js/245.828cf7d4.js"><link rel="prefetch" href="/master/assets/js/246.b3db5c5d.js"><link rel="prefetch" href="/master/assets/js/247.8c71b322.js"><link rel="prefetch" href="/master/assets/js/248.f7cb2954.js"><link rel="prefetch" href="/master/assets/js/249.131e83fd.js"><link rel="prefetch" href="/master/assets/js/25.c02e1d2a.js"><link rel="prefetch" href="/master/assets/js/250.9e59f72d.js"><link rel="prefetch" href="/master/assets/js/251.9a817d54.js"><link rel="prefetch" href="/master/assets/js/252.29c9edc2.js"><link rel="prefetch" href="/master/assets/js/253.73e9cb38.js"><link rel="prefetch" href="/master/assets/js/254.0505f84e.js"><link rel="prefetch" href="/master/assets/js/255.1b44bb0c.js"><link rel="prefetch" href="/master/assets/js/256.51613dd8.js"><link rel="prefetch" href="/master/assets/js/257.e472eeae.js"><link rel="prefetch" href="/master/assets/js/258.c3233878.js"><link rel="prefetch" href="/master/assets/js/259.e30dcb62.js"><link rel="prefetch" href="/master/assets/js/26.dfe1a087.js"><link rel="prefetch" href="/master/assets/js/260.21a3b057.js"><link rel="prefetch" href="/master/assets/js/261.d33f5e87.js"><link rel="prefetch" href="/master/assets/js/262.dacd9006.js"><link rel="prefetch" href="/master/assets/js/263.4a7403aa.js"><link rel="prefetch" href="/master/assets/js/264.2bf4f14c.js"><link rel="prefetch" href="/master/assets/js/265.55c8b815.js"><link rel="prefetch" href="/master/assets/js/266.9b8a5e90.js"><link rel="prefetch" href="/master/assets/js/267.c916831e.js"><link rel="prefetch" href="/master/assets/js/268.d61b5e0d.js"><link rel="prefetch" href="/master/assets/js/269.1502d61c.js"><link rel="prefetch" href="/master/assets/js/27.35a5c659.js"><link rel="prefetch" href="/master/assets/js/270.4191df4a.js"><link rel="prefetch" href="/master/assets/js/271.d9e6d4cd.js"><link rel="prefetch" href="/master/assets/js/272.38926cd9.js"><link rel="prefetch" href="/master/assets/js/273.3bb063d4.js"><link rel="prefetch" href="/master/assets/js/274.f8c9b774.js"><link rel="prefetch" href="/master/assets/js/275.6bf17332.js"><link rel="prefetch" href="/master/assets/js/276.4591e9cb.js"><link rel="prefetch" href="/master/assets/js/277.ef3669bf.js"><link rel="prefetch" href="/master/assets/js/278.d36b841e.js"><link rel="prefetch" href="/master/assets/js/279.15a29632.js"><link rel="prefetch" href="/master/assets/js/28.b6992483.js"><link rel="prefetch" href="/master/assets/js/280.8d898579.js"><link rel="prefetch" href="/master/assets/js/281.e9e83168.js"><link rel="prefetch" href="/master/assets/js/282.f1abc0d6.js"><link rel="prefetch" href="/master/assets/js/283.d727b85c.js"><link rel="prefetch" href="/master/assets/js/284.ac3196d6.js"><link rel="prefetch" href="/master/assets/js/285.9eba8824.js"><link rel="prefetch" href="/master/assets/js/286.b8285e4e.js"><link rel="prefetch" href="/master/assets/js/287.0d8a21ab.js"><link rel="prefetch" href="/master/assets/js/288.9a3459e6.js"><link rel="prefetch" href="/master/assets/js/289.f0f069d8.js"><link rel="prefetch" href="/master/assets/js/29.6fe86cda.js"><link rel="prefetch" href="/master/assets/js/290.f3c2d009.js"><link rel="prefetch" href="/master/assets/js/291.99dbb372.js"><link rel="prefetch" href="/master/assets/js/292.e6b095b8.js"><link rel="prefetch" href="/master/assets/js/293.c64c8e57.js"><link rel="prefetch" href="/master/assets/js/294.10982fc0.js"><link rel="prefetch" href="/master/assets/js/295.e586960a.js"><link rel="prefetch" href="/master/assets/js/296.cc23fe35.js"><link rel="prefetch" href="/master/assets/js/298.4924d65e.js"><link rel="prefetch" href="/master/assets/js/299.6a30cea6.js"><link rel="prefetch" href="/master/assets/js/30.e1c246db.js"><link rel="prefetch" href="/master/assets/js/300.06cda5ca.js"><link rel="prefetch" href="/master/assets/js/301.156f2a20.js"><link rel="prefetch" href="/master/assets/js/302.c7159eb7.js"><link rel="prefetch" href="/master/assets/js/303.f334c91e.js"><link rel="prefetch" href="/master/assets/js/304.6d35f89e.js"><link rel="prefetch" href="/master/assets/js/305.fe476058.js"><link rel="prefetch" href="/master/assets/js/306.2a795ff4.js"><link rel="prefetch" href="/master/assets/js/307.72bdfb79.js"><link rel="prefetch" href="/master/assets/js/308.2a99d722.js"><link rel="prefetch" href="/master/assets/js/309.4c66a577.js"><link rel="prefetch" href="/master/assets/js/31.8367f821.js"><link rel="prefetch" href="/master/assets/js/310.9faba34f.js"><link rel="prefetch" href="/master/assets/js/311.dbfd6cb7.js"><link rel="prefetch" href="/master/assets/js/312.17c7c77b.js"><link rel="prefetch" href="/master/assets/js/313.cb84fa34.js"><link rel="prefetch" href="/master/assets/js/314.4914246e.js"><link rel="prefetch" href="/master/assets/js/315.0df1575e.js"><link rel="prefetch" href="/master/assets/js/316.eb106a27.js"><link rel="prefetch" href="/master/assets/js/317.e9d15dbb.js"><link rel="prefetch" href="/master/assets/js/318.cd51d1f4.js"><link rel="prefetch" href="/master/assets/js/319.90d99b25.js"><link rel="prefetch" href="/master/assets/js/32.6dbc5975.js"><link rel="prefetch" href="/master/assets/js/320.906eb155.js"><link rel="prefetch" href="/master/assets/js/321.f8dfc3ef.js"><link rel="prefetch" href="/master/assets/js/322.692edc50.js"><link rel="prefetch" href="/master/assets/js/323.628e82d0.js"><link rel="prefetch" href="/master/assets/js/324.729305d6.js"><link rel="prefetch" href="/master/assets/js/325.e5db2c4a.js"><link rel="prefetch" href="/master/assets/js/326.5e458d7a.js"><link rel="prefetch" href="/master/assets/js/327.16112e7e.js"><link rel="prefetch" href="/master/assets/js/328.f4e27c5c.js"><link rel="prefetch" href="/master/assets/js/329.4947064b.js"><link rel="prefetch" href="/master/assets/js/33.2179e90a.js"><link rel="prefetch" href="/master/assets/js/330.194802fc.js"><link rel="prefetch" href="/master/assets/js/331.cb687643.js"><link rel="prefetch" href="/master/assets/js/332.0a39973d.js"><link rel="prefetch" href="/master/assets/js/333.ffd21170.js"><link rel="prefetch" href="/master/assets/js/334.ba1b06f8.js"><link rel="prefetch" href="/master/assets/js/335.f9c86ed8.js"><link rel="prefetch" href="/master/assets/js/336.c3f134aa.js"><link rel="prefetch" href="/master/assets/js/337.4d24777c.js"><link rel="prefetch" href="/master/assets/js/338.71ba610b.js"><link rel="prefetch" href="/master/assets/js/339.b9ab099c.js"><link rel="prefetch" href="/master/assets/js/34.eac6c3f8.js"><link rel="prefetch" href="/master/assets/js/340.b9820c6c.js"><link rel="prefetch" href="/master/assets/js/341.5ce289ff.js"><link rel="prefetch" href="/master/assets/js/342.5555793b.js"><link rel="prefetch" href="/master/assets/js/343.fcc9a150.js"><link rel="prefetch" href="/master/assets/js/344.f0d99517.js"><link rel="prefetch" href="/master/assets/js/345.be9d12a4.js"><link rel="prefetch" href="/master/assets/js/346.51b15504.js"><link rel="prefetch" href="/master/assets/js/347.ca9ef69c.js"><link rel="prefetch" href="/master/assets/js/348.fc2f7164.js"><link rel="prefetch" href="/master/assets/js/349.dcfd12b4.js"><link rel="prefetch" href="/master/assets/js/35.51432448.js"><link rel="prefetch" href="/master/assets/js/350.b77654c6.js"><link rel="prefetch" href="/master/assets/js/351.e0cbbf29.js"><link rel="prefetch" href="/master/assets/js/352.afe97ec3.js"><link rel="prefetch" href="/master/assets/js/353.3a4db22f.js"><link rel="prefetch" href="/master/assets/js/354.46045bdc.js"><link rel="prefetch" href="/master/assets/js/355.4dfe1cfc.js"><link rel="prefetch" href="/master/assets/js/356.e6c41292.js"><link rel="prefetch" href="/master/assets/js/357.ced80bae.js"><link rel="prefetch" href="/master/assets/js/358.3248e628.js"><link rel="prefetch" href="/master/assets/js/359.bc77dca3.js"><link rel="prefetch" href="/master/assets/js/36.0ade8451.js"><link rel="prefetch" href="/master/assets/js/360.5800c711.js"><link rel="prefetch" href="/master/assets/js/361.5b6d123b.js"><link rel="prefetch" href="/master/assets/js/362.2f7e7120.js"><link rel="prefetch" href="/master/assets/js/363.896295e9.js"><link rel="prefetch" href="/master/assets/js/364.4db8109b.js"><link rel="prefetch" href="/master/assets/js/365.6101b18a.js"><link rel="prefetch" href="/master/assets/js/366.1f546ebe.js"><link rel="prefetch" href="/master/assets/js/367.c9ccd51b.js"><link rel="prefetch" href="/master/assets/js/368.e3838aa5.js"><link rel="prefetch" href="/master/assets/js/369.79025da2.js"><link rel="prefetch" href="/master/assets/js/37.53771a81.js"><link rel="prefetch" href="/master/assets/js/370.a6a9dfe4.js"><link rel="prefetch" href="/master/assets/js/371.b23b96fe.js"><link rel="prefetch" href="/master/assets/js/372.496e4baa.js"><link rel="prefetch" href="/master/assets/js/373.b8858f4d.js"><link rel="prefetch" href="/master/assets/js/374.8b22671c.js"><link rel="prefetch" href="/master/assets/js/375.90359b73.js"><link rel="prefetch" href="/master/assets/js/376.363c4129.js"><link rel="prefetch" href="/master/assets/js/377.a17f3021.js"><link rel="prefetch" href="/master/assets/js/378.da1ee31f.js"><link rel="prefetch" href="/master/assets/js/379.f592e28e.js"><link rel="prefetch" href="/master/assets/js/38.0c4189e2.js"><link rel="prefetch" href="/master/assets/js/380.614aca5f.js"><link rel="prefetch" href="/master/assets/js/381.1f4684e1.js"><link rel="prefetch" href="/master/assets/js/382.e6307eab.js"><link rel="prefetch" href="/master/assets/js/383.43230d4b.js"><link rel="prefetch" href="/master/assets/js/384.8e69b420.js"><link rel="prefetch" href="/master/assets/js/385.e1a8e52a.js"><link rel="prefetch" href="/master/assets/js/386.5a2844d6.js"><link rel="prefetch" href="/master/assets/js/387.6c3092d1.js"><link rel="prefetch" href="/master/assets/js/388.ac7e1e8e.js"><link rel="prefetch" href="/master/assets/js/389.51895de8.js"><link rel="prefetch" href="/master/assets/js/39.9f71d94c.js"><link rel="prefetch" href="/master/assets/js/390.47b33a45.js"><link rel="prefetch" href="/master/assets/js/391.7b47425f.js"><link rel="prefetch" href="/master/assets/js/392.a4cf61a2.js"><link rel="prefetch" href="/master/assets/js/393.ba30a5c1.js"><link rel="prefetch" href="/master/assets/js/394.d7829d1f.js"><link rel="prefetch" href="/master/assets/js/395.0f1d4302.js"><link rel="prefetch" href="/master/assets/js/396.6baddd92.js"><link rel="prefetch" href="/master/assets/js/397.8f0266df.js"><link rel="prefetch" href="/master/assets/js/398.7e249453.js"><link rel="prefetch" href="/master/assets/js/399.8167066a.js"><link rel="prefetch" href="/master/assets/js/40.c39c5038.js"><link rel="prefetch" href="/master/assets/js/400.b1d761a8.js"><link rel="prefetch" href="/master/assets/js/401.bd8ac9f2.js"><link rel="prefetch" href="/master/assets/js/402.b6df4eaf.js"><link rel="prefetch" href="/master/assets/js/403.d7972bf8.js"><link rel="prefetch" href="/master/assets/js/404.dccc4841.js"><link rel="prefetch" href="/master/assets/js/405.32a82517.js"><link rel="prefetch" href="/master/assets/js/406.46cf7da5.js"><link rel="prefetch" href="/master/assets/js/407.adce794f.js"><link rel="prefetch" href="/master/assets/js/408.9b61ac5f.js"><link rel="prefetch" href="/master/assets/js/409.697c2e6d.js"><link rel="prefetch" href="/master/assets/js/41.570307b9.js"><link rel="prefetch" href="/master/assets/js/410.8ad9aea6.js"><link rel="prefetch" href="/master/assets/js/411.b6a6856e.js"><link rel="prefetch" href="/master/assets/js/412.b204ee3b.js"><link rel="prefetch" href="/master/assets/js/413.9e18b8b9.js"><link rel="prefetch" href="/master/assets/js/414.287b99a5.js"><link rel="prefetch" href="/master/assets/js/415.016bd277.js"><link rel="prefetch" href="/master/assets/js/416.7d98bb52.js"><link rel="prefetch" href="/master/assets/js/417.74b4e4d0.js"><link rel="prefetch" href="/master/assets/js/418.45570e27.js"><link rel="prefetch" href="/master/assets/js/419.320815d5.js"><link rel="prefetch" href="/master/assets/js/42.d7cc2586.js"><link rel="prefetch" href="/master/assets/js/420.e9e6f0f5.js"><link rel="prefetch" href="/master/assets/js/421.c7710973.js"><link rel="prefetch" href="/master/assets/js/422.a007b0a7.js"><link rel="prefetch" href="/master/assets/js/423.f0514bf5.js"><link rel="prefetch" href="/master/assets/js/424.5b80817c.js"><link rel="prefetch" href="/master/assets/js/425.38caac1f.js"><link rel="prefetch" href="/master/assets/js/426.ea2dc706.js"><link rel="prefetch" href="/master/assets/js/427.b19d38e7.js"><link rel="prefetch" href="/master/assets/js/428.19f3af08.js"><link rel="prefetch" href="/master/assets/js/429.8a6c080c.js"><link rel="prefetch" href="/master/assets/js/43.c923b4dd.js"><link rel="prefetch" href="/master/assets/js/430.9efa6b60.js"><link rel="prefetch" href="/master/assets/js/431.001ece20.js"><link rel="prefetch" href="/master/assets/js/432.181c9d74.js"><link rel="prefetch" href="/master/assets/js/433.de6da4f8.js"><link rel="prefetch" href="/master/assets/js/434.2c8f1a7c.js"><link rel="prefetch" href="/master/assets/js/435.b06de217.js"><link rel="prefetch" href="/master/assets/js/436.fcca0886.js"><link rel="prefetch" href="/master/assets/js/437.a805ab5d.js"><link rel="prefetch" href="/master/assets/js/438.a7a9a198.js"><link rel="prefetch" href="/master/assets/js/439.2de5de4e.js"><link rel="prefetch" href="/master/assets/js/44.82c1dcca.js"><link rel="prefetch" href="/master/assets/js/440.b3efb906.js"><link rel="prefetch" href="/master/assets/js/441.73cab906.js"><link rel="prefetch" href="/master/assets/js/442.04e03370.js"><link rel="prefetch" href="/master/assets/js/443.cc6f41f0.js"><link rel="prefetch" href="/master/assets/js/444.efa13a1f.js"><link rel="prefetch" href="/master/assets/js/445.655c0093.js"><link rel="prefetch" href="/master/assets/js/446.fb4b80d3.js"><link rel="prefetch" href="/master/assets/js/447.bda9ce08.js"><link rel="prefetch" href="/master/assets/js/448.f2420763.js"><link rel="prefetch" href="/master/assets/js/449.b180d41b.js"><link rel="prefetch" href="/master/assets/js/45.da306e3f.js"><link rel="prefetch" href="/master/assets/js/450.70b2a86e.js"><link rel="prefetch" href="/master/assets/js/451.de809029.js"><link rel="prefetch" href="/master/assets/js/452.9e165718.js"><link rel="prefetch" href="/master/assets/js/453.7004efa2.js"><link rel="prefetch" href="/master/assets/js/454.6c65412f.js"><link rel="prefetch" href="/master/assets/js/455.e667fa12.js"><link rel="prefetch" href="/master/assets/js/456.6286775f.js"><link rel="prefetch" href="/master/assets/js/457.07cf770e.js"><link rel="prefetch" href="/master/assets/js/458.a68bafe4.js"><link rel="prefetch" href="/master/assets/js/459.db03ca78.js"><link rel="prefetch" href="/master/assets/js/46.09d05fd8.js"><link rel="prefetch" href="/master/assets/js/460.a05c2209.js"><link rel="prefetch" href="/master/assets/js/461.ea29bcc4.js"><link rel="prefetch" href="/master/assets/js/462.b0ac3f88.js"><link rel="prefetch" href="/master/assets/js/463.dae3f248.js"><link rel="prefetch" href="/master/assets/js/464.daf6318c.js"><link rel="prefetch" href="/master/assets/js/465.d0af0750.js"><link rel="prefetch" href="/master/assets/js/466.8c87ef18.js"><link rel="prefetch" href="/master/assets/js/467.4bf8b11c.js"><link rel="prefetch" href="/master/assets/js/468.48300969.js"><link rel="prefetch" href="/master/assets/js/469.31bb718a.js"><link rel="prefetch" href="/master/assets/js/47.6f586316.js"><link rel="prefetch" href="/master/assets/js/470.f89184df.js"><link rel="prefetch" href="/master/assets/js/471.d76d651f.js"><link rel="prefetch" href="/master/assets/js/472.d63825eb.js"><link rel="prefetch" href="/master/assets/js/473.919d6284.js"><link rel="prefetch" href="/master/assets/js/474.5d20509c.js"><link rel="prefetch" href="/master/assets/js/475.9003e8cb.js"><link rel="prefetch" href="/master/assets/js/476.c83eaee4.js"><link rel="prefetch" href="/master/assets/js/477.e23b7870.js"><link rel="prefetch" href="/master/assets/js/478.e9b05a93.js"><link rel="prefetch" href="/master/assets/js/479.da8637ab.js"><link rel="prefetch" href="/master/assets/js/48.e65d724d.js"><link rel="prefetch" href="/master/assets/js/480.f1c0dde7.js"><link rel="prefetch" href="/master/assets/js/481.5ce56a0b.js"><link rel="prefetch" href="/master/assets/js/482.a8db2bd1.js"><link rel="prefetch" href="/master/assets/js/483.a42f5513.js"><link rel="prefetch" href="/master/assets/js/484.b33435d1.js"><link rel="prefetch" href="/master/assets/js/485.d8c56723.js"><link rel="prefetch" href="/master/assets/js/486.9ad69274.js"><link rel="prefetch" href="/master/assets/js/487.1b3d9fae.js"><link rel="prefetch" href="/master/assets/js/488.ac843682.js"><link rel="prefetch" href="/master/assets/js/489.301e0dc3.js"><link rel="prefetch" href="/master/assets/js/49.6d4e02ab.js"><link rel="prefetch" href="/master/assets/js/490.66fa8cb4.js"><link rel="prefetch" href="/master/assets/js/491.313f76e7.js"><link rel="prefetch" href="/master/assets/js/492.03265018.js"><link rel="prefetch" href="/master/assets/js/493.12d7f456.js"><link rel="prefetch" href="/master/assets/js/494.e89eb563.js"><link rel="prefetch" href="/master/assets/js/495.97d7a0d6.js"><link rel="prefetch" href="/master/assets/js/496.06bfb577.js"><link rel="prefetch" href="/master/assets/js/497.cfb0d8d3.js"><link rel="prefetch" href="/master/assets/js/498.04ba472b.js"><link rel="prefetch" href="/master/assets/js/499.09530034.js"><link rel="prefetch" href="/master/assets/js/5.133986fb.js"><link rel="prefetch" href="/master/assets/js/50.2e7f1a45.js"><link rel="prefetch" href="/master/assets/js/500.b855c716.js"><link rel="prefetch" href="/master/assets/js/501.f78d9c79.js"><link rel="prefetch" href="/master/assets/js/502.9a084870.js"><link rel="prefetch" href="/master/assets/js/503.d993eb93.js"><link rel="prefetch" href="/master/assets/js/504.132a25fe.js"><link rel="prefetch" href="/master/assets/js/505.5d480947.js"><link rel="prefetch" href="/master/assets/js/506.310cf71a.js"><link rel="prefetch" href="/master/assets/js/507.ceccd612.js"><link rel="prefetch" href="/master/assets/js/508.5aa49127.js"><link rel="prefetch" href="/master/assets/js/509.fb4afe04.js"><link rel="prefetch" href="/master/assets/js/51.84f6b488.js"><link rel="prefetch" href="/master/assets/js/510.4f2d8ea8.js"><link rel="prefetch" href="/master/assets/js/511.049f1edf.js"><link rel="prefetch" href="/master/assets/js/512.afb8d4ea.js"><link rel="prefetch" href="/master/assets/js/513.612afaae.js"><link rel="prefetch" href="/master/assets/js/514.11212142.js"><link rel="prefetch" href="/master/assets/js/515.7271004d.js"><link rel="prefetch" href="/master/assets/js/52.483ca1e0.js"><link rel="prefetch" href="/master/assets/js/53.fa3b8d49.js"><link rel="prefetch" href="/master/assets/js/54.a17f8069.js"><link rel="prefetch" href="/master/assets/js/55.2d63842e.js"><link rel="prefetch" href="/master/assets/js/56.eef3e8fc.js"><link rel="prefetch" href="/master/assets/js/57.c24a652c.js"><link rel="prefetch" href="/master/assets/js/58.50b6530f.js"><link rel="prefetch" href="/master/assets/js/59.a9605f5f.js"><link rel="prefetch" href="/master/assets/js/6.37d271be.js"><link rel="prefetch" href="/master/assets/js/60.ff299874.js"><link rel="prefetch" href="/master/assets/js/61.668b7dca.js"><link rel="prefetch" href="/master/assets/js/62.f284d37b.js"><link rel="prefetch" href="/master/assets/js/63.ff88161b.js"><link rel="prefetch" href="/master/assets/js/64.fa24b159.js"><link rel="prefetch" href="/master/assets/js/65.76be4a61.js"><link rel="prefetch" href="/master/assets/js/66.f23c8a56.js"><link rel="prefetch" href="/master/assets/js/67.1f5544a6.js"><link rel="prefetch" href="/master/assets/js/68.89a3af49.js"><link rel="prefetch" href="/master/assets/js/69.2370b971.js"><link rel="prefetch" href="/master/assets/js/7.937d5bfa.js"><link rel="prefetch" href="/master/assets/js/70.590949b0.js"><link rel="prefetch" href="/master/assets/js/71.27769dad.js"><link rel="prefetch" href="/master/assets/js/72.989aa670.js"><link rel="prefetch" href="/master/assets/js/73.916efdbb.js"><link rel="prefetch" href="/master/assets/js/74.afcdb165.js"><link rel="prefetch" href="/master/assets/js/75.da48ee57.js"><link rel="prefetch" href="/master/assets/js/76.e0a1fb79.js"><link rel="prefetch" href="/master/assets/js/77.8b2bbd4c.js"><link rel="prefetch" href="/master/assets/js/78.d0022d3f.js"><link rel="prefetch" href="/master/assets/js/79.e3bef6d1.js"><link rel="prefetch" href="/master/assets/js/8.ab28ba73.js"><link rel="prefetch" href="/master/assets/js/80.42d20995.js"><link rel="prefetch" href="/master/assets/js/81.725829f7.js"><link rel="prefetch" href="/master/assets/js/82.c9b7ee62.js"><link rel="prefetch" href="/master/assets/js/83.836731d8.js"><link rel="prefetch" href="/master/assets/js/84.cf8a163b.js"><link rel="prefetch" href="/master/assets/js/85.d59dcee9.js"><link rel="prefetch" href="/master/assets/js/86.e4c4c9b9.js"><link rel="prefetch" href="/master/assets/js/87.804e751c.js"><link rel="prefetch" href="/master/assets/js/88.ca4a149e.js"><link rel="prefetch" href="/master/assets/js/89.3c2d0e32.js"><link rel="prefetch" href="/master/assets/js/9.28d2c452.js"><link rel="prefetch" href="/master/assets/js/90.d20aeb98.js"><link rel="prefetch" href="/master/assets/js/91.c558a3bd.js"><link rel="prefetch" href="/master/assets/js/92.492d26b8.js"><link rel="prefetch" href="/master/assets/js/93.9e6e4651.js"><link rel="prefetch" href="/master/assets/js/94.f26bd057.js"><link rel="prefetch" href="/master/assets/js/95.91e8c6fa.js"><link rel="prefetch" href="/master/assets/js/96.f0b9768c.js"><link rel="prefetch" href="/master/assets/js/97.4c24f996.js"><link rel="prefetch" href="/master/assets/js/98.6d43f538.js"><link rel="prefetch" href="/master/assets/js/99.215bde3b.js"><link rel="prefetch" href="/master/assets/js/vendors~docsearch.62e768c1.js">
+    <link rel="stylesheet" href="/master/assets/css/0.styles.8fc2cc99.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/master/zh-CN/" class="home-link router-link-active"><img src="/master/images/logo.jpeg" alt="Apache Doris" class="logo"> <span class="site-name can-hide">Apache Doris</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/master/zh-CN/" class="nav-link">
+  主页
+</a></div><div class="nav-item"><a href="/master/zh-CN/installing/compilation.html" class="nav-link">
+  文档
+</a></div><div class="nav-item"><a href="/master/zh-CN/downloads/downloads.html" class="nav-link">
+  下载
+</a></div><div class="nav-item"><a href="https://www.apache.org/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Apache
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="版本" class="dropdown-title"><span class="title">版本</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/../master/en/installing/compilation.html" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  master
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Select language" class="dropdown-title"><span class="title">选择语言</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/master/en/community/release-process.html" class="nav-link">
+  English
+</a></li><li class="dropdown-item"><!----> <a href="/master/zh-CN/community/release-process.html" class="nav-link router-link-exact-active router-link-active">
+  简体中文
+</a></li></ul></div></div> <a href="https://github.com/apache/incubator-doris" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/master/zh-CN/" class="nav-link">
+  主页
+</a></div><div class="nav-item"><a href="/master/zh-CN/installing/compilation.html" class="nav-link">
+  文档
+</a></div><div class="nav-item"><a href="/master/zh-CN/downloads/downloads.html" class="nav-link">
+  下载
+</a></div><div class="nav-item"><a href="https://www.apache.org/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Apache
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="版本" class="dropdown-title"><span class="title">版本</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/../master/en/installing/compilation.html" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  master
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Select language" class="dropdown-title"><span class="title">选择语言</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/master/en/community/release-process.html" class="nav-link">
+  English
+</a></li><li class="dropdown-item"><!----> <a href="/master/zh-CN/community/release-process.html" class="nav-link router-link-exact-active router-link-active">
+  简体中文
+</a></li></ul></div></div> <a href="https://github.com/apache/incubator-doris" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></nav>  <ul class="sidebar-links"><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>下载</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>编译与部署</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>开始使用</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>操作手册</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>扩展功能</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>设计文档</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>SQL 手册</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>开发者手册</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading open"><span>Apache 社区</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/master/zh-CN/community/gitter.html" class="sidebar-link">Gitter 使用指南</a></li><li><a href="/master/zh-CN/community/how-to-contribute.html" class="sidebar-link">为 Doris 做贡献</a></li><li><a href="/master/zh-CN/community/members.html" class="sidebar-link">PMC Members &amp; Committer</a></li><li><a href="/master/zh-CN/community/pull-request.html" class="sidebar-link">代码提交指南</a></li><li><a href="/master/zh-CN/community/release-process.html" class="active sidebar-link">Apache Doris 发布流程</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/master/zh-CN/community/release-process.html#准备环境" class="sidebar-link">准备环境</a></li><li class="sidebar-sub-header"><a href="/master/zh-CN/community/release-process.html#准备发布" class="sidebar-link">准备发布</a></li><li class="sidebar-sub-header"><a href="/master/zh-CN/community/release-process.html#社区发布投票流程" class="sidebar-link">社区发布投票流程</a></li><li class="sidebar-sub-header"><a href="/master/zh-CN/community/release-process.html#完成发布流程" class="sidebar-link">完成发布流程</a></li></ul></li><li><a href="/master/zh-CN/community/subscribe-mail-list.html" class="sidebar-link">订阅邮件列表</a></li><li><a href="/master/zh-CN/community/verify-apache-release.html" class="sidebar-link">验证 Apache 发布版本</a></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="apache-doris-发布流程"><a href="#apache-doris-发布流程" class="header-anchor">#</a> Apache Doris 发布流程</h1> <p>Apache 的发布必须至少是 IPMC 成员，拥有 apache 邮箱的commiter，这个角色叫做 release manager。</p> <p>发布的大致流程如下：</p> <ol><li>环境准备</li> <li>发布准备</li> <li>社区发起 DISCUSS 并与社区交流具体发布计划</li> <li>创建分支用于发布</li> <li>清理 issue</li> <li>将必要的 Patch 合并到发布的分支</li> <li>社区发布投票流程</li> <li>将 tag 打包，签名并上传到<a href="https://dist.apache.org/repos/dist/dev/incubator/doris" target="_blank" rel="noopener noreferrer">Apache Dev svn 仓库<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li> <li>在 <a href="dev@doris.apache.org">Doris 社区</a>发起投票</li> <li>投票通过后，在Doris社区发 Result 邮件</li> <li>在 <a href="general@incubator.apache.org">Incubator 社区</a> 发起新一轮投票</li> <li>发 Result 邮件到 general@incubator.apache.org</li> <li>完成工作</li> <li>上传签名的软件包到 <a href="https://dist.apache.org/repos/dist/release/incubator/doris" target="_blank" rel="noopener noreferrer">Apache release repo<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a>，并生成相关链接</li> <li>准备 release note 并发 Announce 邮件到 general@incubator.apache.org</li> <li>在 Doris 官网和 github 发布下载链接</li></ol> <h2 id="准备环境"><a href="#准备环境" class="header-anchor">#</a> 准备环境</h2> <p>如果这是你第一次发布，那么你需要在你的环境中准备如下工具</p> <ol><li>release signing <a href="https://www.apache.org/dev/release-signing.html" target="_blank" rel="noopener noreferrer">https://www.apache.org/dev/release-signing.html<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li> <li>gpg <a href="https://www.apache.org/dev/openpgp.html" target="_blank" rel="noopener noreferrer">https://www.apache.org/dev/openpgp.html<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li> <li>svn <a href="https://www.apache.org/dev/openpgp.html" target="_blank" rel="noopener noreferrer">https://www.apache.org/dev/openpgp.html<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li></ol> <h3 id="准备gpg-key"><a href="#准备gpg-key" class="header-anchor">#</a> 准备gpg key</h3> <p>Release manager 在发布前需要先生成自己的签名公钥，并上传到公钥服务器，之后就可以用这个公钥对准备发布的软件包进行签名。
+如果在<a href="https://dist.apache.org/repos/dist/dev/incubator/doris/KEYS" target="_blank" rel="noopener noreferrer">KEY<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a>里已经存在了你的KEY，那么你可以跳过这个步骤了。</p> <h4 id="签名软件-gnupg-的安装配置"><a href="#签名软件-gnupg-的安装配置" class="header-anchor">#</a> 签名软件 GnuPG 的安装配置</h4> <h5 id="gnupg"><a href="#gnupg" class="header-anchor">#</a> GnuPG</h5> <p>1991年，程序员 Phil Zimmermann 为了避开政府监视，开发了加密软件PGP。这个软件非常好用，迅速流传开来，成了许多程序员的必备工具。但是，它是商业软件，不能自由使用。所以，自由软件基金会决定，开发一个PGP的替代品，取名为GnuPG。这就是GPG的由来。</p> <h5 id="安装配置"><a href="#安装配置" class="header-anchor">#</a> 安装配置</h5> <p>CentOS 安装命令：</p> <div class="language- extra-class"><pre class="language-text"><code>yum install gnupg
+</code></pre></div><p>安装完成后，默认配置文件 gpg.conf 会放在 home 目录下。</p> <div class="language- extra-class"><pre class="language-text"><code>~/.gnupg/gpg.conf
+</code></pre></div><p>如果不存在这个目录或文件，可以直接创建一个空文件。
+编辑gpg.conf, 修改或者增加 keyserver 配置：</p> <div class="language- extra-class"><pre class="language-text"><code>keyserver hkp://keys.gnupg.net
+</code></pre></div><p>Apache 签名推荐 SHA512， 可以通过配置 gpg 完成。
+编辑gpg.conf, 增加下面的三行：</p> <div class="language- extra-class"><pre class="language-text"><code>personal-digest-preferences SHA512
+cert-digest-algo SHA512
+default-preference-list SHA512 SHA384 SHA256 SHA224 AES256 AES192 AES CAST5 ZLIB BZIP2 ZIP Uncompressed
+</code></pre></div><h4 id="生成新的签名"><a href="#生成新的签名" class="header-anchor">#</a> 生成新的签名</h4> <h5 id="准备签名"><a href="#准备签名" class="header-anchor">#</a> 准备签名</h5> <p>推荐的生成新签名的设置：</p> <p>这里必须通过 SecureCRT 等终端直接登录用户账户，不能通过 su - user 或者 ssh 转，否则密码输入 box 会显示不出来而报错。</p> <p>先看下 gpg 的 version 以及是否支持 SHA512.</p> <div class="language- extra-class"><pre class="language-text"><code>$ gpg --version
+gpg (GnuPG) 2.0.22
+libgcrypt 1.5.3
+Copyright (C) 2013 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later &lt;http://gnu.org/licenses/gpl.html&gt;
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.
+
+Home: ~/.gnupg
+Supported algorithms:
+Pubkey: RSA, ?, ?, ELG, DSA
+Cipher: IDEA, 3DES, CAST5, BLOWFISH, AES, AES192, AES256, TWOFISH,
+        CAMELLIA128, CAMELLIA192, CAMELLIA256
+Hash: MD5, SHA1, RIPEMD160, SHA256, SHA384, SHA512, SHA224
+Compression: Uncompressed, ZIP, ZLIB, BZIP2
+</code></pre></div><h5 id="生成新的签名-2"><a href="#生成新的签名-2" class="header-anchor">#</a> 生成新的签名</h5> <div class="language- extra-class"><pre class="language-text"><code>$ gpg --gen-key
+gpg (GnuPG) 2.0.22; Copyright (C) 2013 Free Software Foundation, Inc.
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.
+
+Please select what kind of key you want:
+   (1) RSA and RSA (default)
+   (2) DSA and Elgamal
+   (3) DSA (sign only)
+   (4) RSA (sign only)
+Your selection? 1
+RSA keys may be between 1024 and 4096 bits long.
+What keysize do you want? (2048) 4096
+Requested keysize is 4096 bits
+Please specify how long the key should be valid.
+         0 = key does not expire
+      &lt;n&gt;  = key expires in n days
+      &lt;n&gt;w = key expires in n weeks
+      &lt;n&gt;m = key expires in n months
+      &lt;n&gt;y = key expires in n years
+Key is valid for? (0)
+Key does not expire at all
+Is this correct? (y/N) y
+
+GnuPG needs to construct a user ID to identify your key.
+
+Real name: xxx
+Name must be at least 5 characters long
+Real name: xxx-yyy
+Email address: xxx@apache.org
+Comment: xxx's key
+You selected this USER-ID:
+    &quot;xxx-yyy (xxx's key) &lt;xxx@apache.org&gt;&quot;
+
+Change (N)ame, (C)omment, (E)mail or (O)kay/(Q)uit? o
+</code></pre></div><p>其中 Real name 需保持和 id.apache.org 中显示的 id 一致。
+Email address 为 apache 的邮箱。</p> <h5 id="查看和输出"><a href="#查看和输出" class="header-anchor">#</a> 查看和输出</h5> <p>第一行显示公钥文件名（pubring.gpg），第二行显示公钥特征（4096位，Hash字符串和生成时间），第三行显示&quot;用户ID&quot;，第四行显示私钥特征。</p> <div class="language- extra-class"><pre class="language-text"><code>$ gpg --list-keys
+/home/lide/.gnupg/pubring.gpg
+-----------------------------
+pub   4096R/33DBF2E0 2018-12-06
+uid                  xxx-yyy  (xxx's key) &lt;xxx@apache.org&gt;
+sub   4096R/0E8182E6 2018-12-06
+</code></pre></div><p>其中 xxx-yyy 就是用户ID。</p> <div class="language- extra-class"><pre class="language-text"><code>gpg --armor --output public-key.txt --export [用户ID]
+</code></pre></div><div class="language- extra-class"><pre class="language-text"><code>$ gpg --armor --output public-key.txt --export xxx-yyy
+$ cat public-key.txt
+-----BEGIN PGP PUBLIC KEY BLOCK-----
+Version: GnuPG v2.0.22 (GNU/Linux)
+
+mQINBFwJEQ0BEACwqLluHfjBqD/RWZ4uoYxNYHlIzZvbvxAlwS2mn53BirLIU/G3
+9opMWNplvmK+3+gNlRlFpiZ7EvHsF/YJOAP59HmI2Z...
+</code></pre></div><h4 id="上传签名公钥"><a href="#上传签名公钥" class="header-anchor">#</a> 上传签名公钥</h4> <p>公钥服务器是网络上专门储存用户公钥的服务器。send-keys 参数可以将公钥上传到服务器。</p> <div class="language- extra-class"><pre class="language-text"><code>gpg --send-keys xxxx
+
+</code></pre></div><p>其中 xxxx 为上一步 <code>--list-keys</code> 结果中 pub 后面的字符串，如上为：33DBF2E0</p> <p>也可以通过<a href="https://keys.gnupg.net" target="_blank" rel="noopener noreferrer">网站<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a>上传上述 public-key.txt 的内容：</p> <p>上传成功之后，可以通过查询这个<a href="https://keys.gnupg.net" target="_blank" rel="noopener noreferrer">网站<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a>，输入 0x33DBF2E0 查询：</p> <p>该网站查询有延迟，可能需要等1个小时。</p> <h4 id="生成-fingerprint-并上传到-apache-用户信息中"><a href="#生成-fingerprint-并上传到-apache-用户信息中" class="header-anchor">#</a> 生成 fingerprint 并上传到 apache 用户信息中</h4> <p>由于公钥服务器没有检查机制，任何人都可以用你的名义上传公钥，所以没有办法保证服务器上的公钥的可靠性。通常，你可以在网站上公布一个公钥指纹，让其他人核对下载到的公钥是否为真。</p> <p>fingerprint参数生成公钥指纹：</p> <div class="language- extra-class"><pre class="language-text"><code>gpg --fingerprint [用户ID]
+</code></pre></div><div class="language- extra-class"><pre class="language-text"><code>$ gpg --fingerprint xxx-yyy
+pub   4096R/33DBF2E0 2018-12-06
+      Key fingerprint = 07AA E690 B01D 1A4B 469B  0BEF 5E29 CE39 33DB F2E0
+uid                  xxx-yyy (xxx's key) &lt;xxx@apache.org&gt;
+sub   4096R/0E8182E6 2018-12-06
+</code></pre></div><p>将上面的 fingerprint （即 07AA E690 B01D 1A4B 469B  0BEF 5E29 CE39 33DB F2E0）粘贴到自己的用户信息中：</p> <p><a href="https://id.apache.org" target="_blank" rel="noopener noreferrer">https://id.apache.org<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></p> <p>OpenPGP Public Key Primary Fingerprint:</p> <h4 id="生成-keys"><a href="#生成-keys" class="header-anchor">#</a> 生成 keys</h4> <div class="language- extra-class"><pre class="language-text"><code>svn co //dist.apache.org/repos/dist/dev/incubator/doris/
+# edit doris/KEY file
+gpg --list-sigs [用户 ID] &gt;&gt; doris/KEYS
+gpg --armor --export [用户 ID] &gt;&gt; doris/KEYS
+svn ci --username $ASF_USERNAME --password &quot;$ASF_PASSWORD&quot; -m&quot;Update KEYS&quot;
+</code></pre></div><h2 id="准备发布"><a href="#准备发布" class="header-anchor">#</a> 准备发布</h2> <h3 id="在社区发起-discuss"><a href="#在社区发起-discuss" class="header-anchor">#</a> 在社区发起 DISCUSS</h3> <p>如果觉得已经修复了很多bug，开发了比较重要的 feature，任何 IPMC 成员都可以发起 DISCUSS 讨论发布新版本。
+可以发起一个标题为 [DISCUSS] x.y.z release 的邮件，在社区内部进行讨论，说明已经修复了哪些bug，开发了哪些 features。
+如果 DISCUSS 邮件得到大家支持就可以进行下一步。</p> <h3 id="准备分支"><a href="#准备分支" class="header-anchor">#</a> 准备分支</h3> <p>发布前需要先新建一个分支。例如：</p> <div class="language- extra-class"><pre class="language-text"><code>git checkout -b branch-0.9
+
+</code></pre></div><p>这个分支要进行比较充分的测试，使得功能可用，bug收敛，重要bug都得到修复。
+这个过程需要等待社区，看看是否有必要的patch需要在这个版本合入，如果有，需要把它 cherry-pick 到发布分支。</p> <h3 id="清理issue"><a href="#清理issue" class="header-anchor">#</a> 清理issue</h3> <p>将属于这个版本的所有 issue 都过一遍，关闭已经完成的，如果没法完成的，推迟到更晚的版本。</p> <h3 id="合并必要的patch"><a href="#合并必要的patch" class="header-anchor">#</a> 合并必要的Patch</h3> <p>在发布等待过程中，可能会有比较重要的Patch合入，如果社区有人说要有重要的Bug需要合入，那么 Release Manager 需要评估并将重要的Patch合入到发布分支中。</p> <h2 id="社区发布投票流程"><a href="#社区发布投票流程" class="header-anchor">#</a> 社区发布投票流程</h2> <h3 id="打-tag"><a href="#打-tag" class="header-anchor">#</a> 打 tag</h3> <p>当上述分支已经比较稳定后，就可以在此分支上打 tag。
+记得在创建 tag 时，修改 <code>gensrc/script/gen_build_version.sh</code> 中的 <code>build_version</code> 变量。如 <code>build_version=&quot;0.10.0-release&quot;</code></p> <p>例如：</p> <div class="language- extra-class"><pre class="language-text"><code>$ git checkout branch-0.9
+$ git tag -a 0.9.0-rc01 -m &quot;0.9.0 release candidate 01&quot;
+$ git push origin 0.9.0-rc01
+Counting objects: 1, done.
+Writing objects: 100% (1/1), 165 bytes | 0 bytes/s, done.
+Total 1 (delta 0), reused 0 (delta 0)
+To git@github.com:apache/incubator-doris.git
+ * [new tag]         0.9.0-rc01 -&gt; 0.9.0-rc01
+
+$ git tag
+</code></pre></div><h3 id="打包、签名上传"><a href="#打包、签名上传" class="header-anchor">#</a> 打包、签名上传</h3> <p>如下步骤，也需要通过 SecureCRT 等终端直接登录用户账户，不能通过 su - user 或者 ssh 转，否则密码输入 box 会显示不出来而报错。</p> <div class="language- extra-class"><pre class="language-text"><code>git checkout 0.9.0-rc01
+
+git archive --format=tar 0.9.0-rc01 --prefix=apache-doris-0.9.0-incubating-src/ | gzip &gt; apache-doris-0.9.0-incubating-src.tar.gz
+
+gpg -u xxx@apache.org --armor --output apache-doris-0.9.0-incubating-src.tar.gz.asc --detach-sign apache-doris-0.9.0-incubating-src.tar.gz
+
+gpg --verify apache-doris-0.9.0-incubating-src.tar.gz.asc apache-doris-0.9.0-incubating-src.tar.gz
+
+sha512sum apache-doris-0.9.0-incubating-src.tar.gz &gt; apache-doris-0.9.0-incubating-src.tar.gz.sha512
+
+sha512sum --check apache-doris-0.9.0-incubating-src.tar.gz.sha512
+</code></pre></div><p>然后将打包的内容上传到svn仓库中，首先下载 svn 库：</p> <div class="language- extra-class"><pre class="language-text"><code>svn co https://dist.apache.org/repos/dist/dev/incubator/doris/
+</code></pre></div><p>将之前得到的全部文件组织成以下svn路径</p> <div class="language- extra-class"><pre class="language-text"><code>./doris/
+|-- 0.11.0-rc1
+|   |-- apache-doris-0.11.0-incubating-src.tar.gz
+|   |-- apache-doris-0.11.0-incubating-src.tar.gz.asc
+|   `-- apache-doris-0.11.0-incubating-src.tar.gz.sha512
+`-- KEYS
+</code></pre></div><p>上传这些文件</p> <div class="language- extra-class"><pre class="language-text"><code>svn add 0.11.0-rc1
+svn commit -m &quot;Add 0.11.0-rc1&quot;
+</code></pre></div><h3 id="发社区投票邮件"><a href="#发社区投票邮件" class="header-anchor">#</a> 发社区投票邮件</h3> <p>[VOTE] Release Apache Doris 0.9.0-incubating-rc01</p> <div class="language- extra-class"><pre class="language-text"><code>Hi all,
+
+Please review and vote on Apache Doris 0.9.0-incubating-rc01 release.
+
+The release candidate has been tagged in GitHub as 0.9.0-rc01, available
+here:
+https://github.com/apache/incubator-doris/releases/tag/0.9.0-rc01
+
+Release Notes are here:
+https://github.com/apache/incubator-doris/issues/1891
+
+Thanks to everyone who has contributed to this release.
+
+The artifacts (source, signature and checksum) corresponding to this release
+candidate can be found here:
+https://dist.apache.org/repos/dist/dev/incubator/doris/0.9/0.9.0-rc1/
+
+This has been signed with PGP key 33DBF2E0, corresponding to
+lide@apache.org.
+KEYS file is available here:
+https://dist.apache.org/repos/dist/dev/incubator/doris/KEYS
+It is also listed here:
+https://people.apache.org/keys/committer/lide.asc
+
+To verify and build, you can refer to following wiki:
+https://github.com/apache/incubator-doris/wiki/How-to-verify-Apache-Release
+https://wiki.apache.org/incubator/IncubatorReleaseChecklist
+
+The vote will be open for at least 72 hours.
+[ ] +1 Approve the release
+[ ] +0 No opinion
+[ ] -1 Do not release this package because ...
+
+Best Regards,
+xxx
+
+----
+DISCLAIMER-WIP:
+Apache Doris is an effort undergoing incubation at The Apache Software Foundation (ASF),
+sponsored by the Apache Incubator. Incubation is required of all newly accepted projects
+until a further review indicates that the infrastructure, communications, and decision
+making process have stabilized in a manner consistent with other successful ASF projects.
+While incubation status is not necessarily a reflection of the completeness or stability
+of the code, it does indicate that the project has yet to be fully endorsed by the ASF.
+
+Some of the incubating project’s releases may not be fully compliant with ASF policy. For
+example, releases may have incomplete or un-reviewed licensing conditions. What follows is
+a list of known issues the project is currently aware of (note that this list, by definition,
+is likely to be incomplete):
+
+ * Releases may have incomplete licensing conditions
+
+If you are planning to incorporate this work into your product/project, please be aware that
+you will need to conduct a thorough licensing review to determine the overall implications of
+including this work. For the current status of this project through the Apache Incubator
+visit: https://incubator.apache.org/projects/doris.html
+</code></pre></div><h3 id="投票通过后，发-result-邮件"><a href="#投票通过后，发-result-邮件" class="header-anchor">#</a> 投票通过后，发 Result 邮件</h3> <p>[Result][VOTE] Release Apache Doris 0.9.0-incubating-rc01</p> <div class="language- extra-class"><pre class="language-text"><code>Thanks to everyone, and this vote is now closed.
+
+It has passed with 4 +1 (binding) votes and no 0 or -1 votes.
+
+Binding:
++1 Zhao Chun
++1 xxx
++1 Li Chaoyong
++1 Mingyu Chen
+
+Best Regards,
+xxx
+
+</code></pre></div><h3 id="发邮件到-general-incubator-apache-org-进行投票"><a href="#发邮件到-general-incubator-apache-org-进行投票" class="header-anchor">#</a> 发邮件到 general@incubator.apache.org 进行投票</h3> <p>[VOTE] Release Apache Doris 0.9.0-incubating-rc01</p> <div class="language- extra-class"><pre class="language-text"><code>Hi all,
+
+Please review and vote on Apache Doris 0.9.0-incubating-rc01 release.
+
+Apache Doris is an MPP-based interactive SQL data warehousing for reporting and analysis.
+
+The Apache Doris community has voted on and approved this release:
+https://lists.apache.org/thread.html/d70f7c8a8ae448bf6680a15914646005c6483564464cfa15f4ddc2fc@%3Cdev.doris.apache.org%3E
+
+The vote result email thread:
+https://lists.apache.org/thread.html/64d229f0ba15d66adc83306bc8d7b7ccd5910ecb7e842718ce6a61da@%3Cdev.doris.apache.org%3E
+
+The release candidate has been tagged in GitHub as 0.9.0-rc01, available here:
+https://github.com/apache/incubator-doris/releases/tag/0.9.0-rc01
+
+There is no CHANGE LOG file because this is the first release of Apache Doris.
+Thanks to everyone who has contributed to this release, and there is a simple release notes can be found here:
+https://github.com/apache/incubator-doris/issues/406
+
+The artifacts (source, signature and checksum) corresponding to this release candidate can be found here:
+https://dist.apache.org/repos/dist/dev/incubator/doris/0.9/0.9.0-rc01/
+
+This has been signed with PGP key 33DBF2E0, corresponding to lide@apache.org.
+KEYS file is available here:
+https://dist.apache.org/repos/dist/dev/incubator/doris/KEYS
+It is also listed here:
+https://people.apache.org/keys/committer/lide.asc
+
+The vote will be open for at least 72 hours.
+[ ] +1 Approve the release
+[ ] +0 No opinion
+[ ] -1 Do not release this package because ...
+
+To verify and build, you can refer to following instruction:
+
+Firstly, you must be install and start docker service, and then you could build Doris as following steps:
+
+Step1: Pull the docker image with Doris building environment
+$ docker pull apachedoris/doris-dev:build-env
+You can check it by listing images, its size is about 3.28GB.
+
+Step2: Run the Docker image
+You can run image directly:
+$ docker run -it apachedoris/doris-dev:build-env
+
+Step3: Download Doris source
+Now you should in docker environment, and you can download Doris source package.
+(If you have downloaded source and it is not in image, you can map its path to image in Step2.)
+$ wget https://dist.apache.org/repos/dist/dev/incubator/doris/0.9/0.9.0-rc01/apache-doris-0.9.0.rc01-incubating-src.tar.gz
+
+Step4: Build Doris
+Now you can decompress and enter Doris source path and build Doris.
+$ tar zxvf apache-doris-0.9.0.rc01-incubating-src.tar.gz
+$ cd apache-doris-0.9.0.rc01-incubating-src
+$ sh build.sh
+
+Best Regards,
+xxx
+
+----
+DISCLAIMER-WIP:
+Apache Doris is an effort undergoing incubation at The Apache Software Foundation (ASF),
+sponsored by the Apache Incubator. Incubation is required of all newly accepted projects
+until a further review indicates that the infrastructure, communications, and decision
+making process have stabilized in a manner consistent with other successful ASF projects.
+While incubation status is not necessarily a reflection of the completeness or stability
+of the code, it does indicate that the project has yet to be fully endorsed by the ASF.
+
+Some of the incubating project’s releases may not be fully compliant with ASF policy. For
+example, releases may have incomplete or un-reviewed licensing conditions. What follows is
+a list of known issues the project is currently aware of (note that this list, by definition,
+is likely to be incomplete):
+
+ * Releases may have incomplete licensing conditions
+
+If you are planning to incorporate this work into your product/project, please be aware that
+you will need to conduct a thorough licensing review to determine the overall implications of
+including this work. For the current status of this project through the Apache Incubator
+visit: https://incubator.apache.org/projects/doris.html
+</code></pre></div><p>邮件的 thread 连接可以在这里找到：</p> <p><code>https://lists.apache.org/list.html?dev@doris.apache.org</code></p> <h3 id="发-result-邮件到-general-incubator-apache-org"><a href="#发-result-邮件到-general-incubator-apache-org" class="header-anchor">#</a> 发 Result 邮件到 general@incubator.apache.org</h3> <p>[RESULT][VOTE] Release Apache Doris 0.9.0-incubating-rc01</p> <div class="language- extra-class"><pre class="language-text"><code>Hi,
+
+Thanks to everyone, and the vote for releasing Apache Doris 0.9.0-incubating-rc01 is now closed.
+
+It has passed with 4 +1 (binding) votes and no 0 or -1 votes.
+
+Binding:
++1 Willem Jiang
++1 Justin Mclean
++1 ShaoFeng Shi
++1 Makoto Yui
+
+The vote thread:
+https://lists.apache.org/thread.html/da05fdd8d84e35de527f27200b5690d7811a1e97d419d1ea66562130@%3Cgeneral.incubator.apache.org%3E
+
+Best Regards,
+xxx
+</code></pre></div><h2 id="完成发布流程"><a href="#完成发布流程" class="header-anchor">#</a> 完成发布流程</h2> <h3 id="上传-package-到-release"><a href="#上传-package-到-release" class="header-anchor">#</a> 上传 package 到 release</h3> <p>当正式发布投票成功后，先发[Result]邮件，然后就准备 release package。
+将之前在dev下发布的对应rc文件夹下的源码包、签名文件和hash文件拷贝到另一个目录 0.9.0-incubating，注意文件名字中不要rcxx (可以rename，但不要重新计算签名，hash可以重新计算，结果不会变)</p> <p>第一次发布的话 KEYS 文件也需要拷贝过来。然后add到svn release 下。</p> <div class="language- extra-class"><pre class="language-text"><code>
+https://dist.apache.org/repos/dist/release/incubator/doris/0.9.0-incubating/
+
+最终能在 apache 官网看到：
+http://www.apache.org/dist/incubator/doris/0.9.0-incubating/
+
+</code></pre></div><h3 id="发-announce-邮件到-general-incubator-apache-org"><a href="#发-announce-邮件到-general-incubator-apache-org" class="header-anchor">#</a> 发 Announce 邮件到 general@incubator.apache.org</h3> <p>Title:</p> <div class="language- extra-class"><pre class="language-text"><code>[ANNOUNCE] Apache Doris (incubating) 0.9.0 Release
+</code></pre></div><p>发送邮件组：</p> <div class="language- extra-class"><pre class="language-text"><code>general@incubator.apache.org &lt;general@incubator.apache.org&gt;
+dev@doris.apache.org &lt;dev@doris.apache.org&gt;
+</code></pre></div><p>邮件正文：</p> <div class="language- extra-class"><pre class="language-text"><code>Hi All,
+
+We are pleased to announce the release of Apache Doris 0.9.0-incubating.
+
+Apache Doris (incubating) is an MPP-based interactive SQL data warehousing for reporting and analysis.
+
+The release is available at:
+http://doris.apache.org/downloads.html
+
+Thanks to everyone who has contributed to this release, and the release note can be found here:
+https://github.com/apache/incubator-doris/releases
+
+Best Regards,
+
+On behalf of the Doris team,
+xxx
+
+----
+DISCLAIMER-WIP:
+Apache Doris is an effort undergoing incubation at The Apache Software Foundation (ASF),
+sponsored by the Apache Incubator. Incubation is required of all newly accepted projects
+until a further review indicates that the infrastructure, communications, and decision
+making process have stabilized in a manner consistent with other successful ASF projects.
+While incubation status is not necessarily a reflection of the completeness or stability
+of the code, it does indicate that the project has yet to be fully endorsed by the ASF.
+
+Some of the incubating project’s releases may not be fully compliant with ASF policy. For
+example, releases may have incomplete or un-reviewed licensing conditions. What follows is
+a list of known issues the project is currently aware of (note that this list, by definition,
+is likely to be incomplete):
+
+ * Releases may have incomplete licensing conditions
+
+If you are planning to incorporate this work into your product/project, please be aware that
+you will need to conduct a thorough licensing review to determine the overall implications of
+including this work. For the current status of this project through the Apache Incubator
+visit: https://incubator.apache.org/projects/doris.html
+</code></pre></div><h3 id="在-doris-官网和-github-发布链接"><a href="#在-doris-官网和-github-发布链接" class="header-anchor">#</a> 在 Doris 官网和 github 发布链接</h3> <h4 id="创建下载链接"><a href="#创建下载链接" class="header-anchor">#</a> 创建下载链接</h4> <p>下载链接：
+<a href="http://www.apache.org/dyn/closer.cgi?filename=incubator/doris/0.9.0-incubating/apache-doris-0.9.0-incubating-src.tar.gz&amp;action=download" target="_blank" rel="noopener noreferrer">http://www.apache.org/dyn/closer.cgi?filename=incubator/doris/0.9.0-incubating/apache-doris-0.9.0-incubating-src.tar.gz&amp;action=download<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></p> <p>wget --trust-server-names &quot;<a href="https://www.apache.org/dyn/mirrors/mirrors.cgi?action=download&amp;filename=incubator/doris/0.9.0-incubating/apache-doris-0.9.0-incubating-src.tar.gz%22" target="_blank" rel="noopener noreferrer">https://www.apache.org/dyn/mirrors/mirrors.cgi?action=download&amp;filename=incubator/doris/0.9.0-incubating/apache-doris-0.9.0-incubating-src.tar.gz&quot;<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></p> <p>原始位置:
+<a href="https://www.apache.org/dist/incubator/doris/0.9.0-incubating/" target="_blank" rel="noopener noreferrer">https://www.apache.org/dist/incubator/doris/0.9.0-incubating/<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></p> <p><a href="http://www.apache.org/dyn/closer.cgi/incubator/doris/0.9.0-incubating/apache-doris-0.9.0-incubating-src.tar.gz" target="_blank" rel="noopener noreferrer">http://www.apache.org/dyn/closer.cgi/incubator/doris/0.9.0-incubating/apache-doris-0.9.0-incubating-src.tar.gz<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></p> <p>源码包（source package）:
+<a href="http://www.apache.org/dyn/closer.cgi/incubator/doris/0.9.0-incubating/apache-doris-0.9.0-incubating-src.tar.gz" target="_blank" rel="noopener noreferrer">http://www.apache.org/dyn/closer.cgi/incubator/doris/0.9.0-incubating/apache-doris-0.9.0-incubating-src.tar.gz<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></p> <p>ASC:
+<a href="http://archive.apache.org/dist/incubator/doris/0.9.0-incubating/apache-doris-0.9.0-incubating-src.tar.gz.asc" target="_blank" rel="noopener noreferrer">http://archive.apache.org/dist/incubator/doris/0.9.0-incubating/apache-doris-0.9.0-incubating-src.tar.gz.asc<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></p> <p>sha512:
+<a href="http://archive.apache.org/dist/incubator/doris/0.9.0-incubating/apache-doris-0.9.0-incubating-src.tar.gz.sha512" target="_blank" rel="noopener noreferrer">http://archive.apache.org/dist/incubator/doris/0.9.0-incubating/apache-doris-0.9.0-incubating-src.tar.gz.sha512<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></p> <p>KEYS:
+<a href="http://archive.apache.org/dist/incubator/doris/KEYS" target="_blank" rel="noopener noreferrer">http://archive.apache.org/dist/incubator/doris/KEYS<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></p> <p>refer to: <a href="http://www.apache.org/dev/release-download-pages#closer" target="_blank" rel="noopener noreferrer">http://www.apache.org/dev/release-download-pages#closer<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></p> <h4 id="准备-release-note"><a href="#准备-release-note" class="header-anchor">#</a> 准备 release note</h4> <p>需要修改如下两个地方：</p> <p>1、Github 的 release 页面</p> <div class="language- extra-class"><pre class="language-text"><code>https://github.com/apache/incubator-doris/releases/tag/0.9.0-rc01
+</code></pre></div><p>2、Doris 官网下载页面</p> <div class="language- extra-class"><pre class="language-text"><code>http://doris.apache.org/downloads.html
+</code></pre></div></div> <footer class="page-edit"><div class="edit-link"><a href="https://github.com/apache/incubator-doris/edit/master/docs/zh-CN/community/release-process.md" target="_blank" rel="noopener noreferrer">在 GitHub 上编辑此页</a> <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></div> <div class="last-updated"><span class="prefix">Last Updated:</span> <span class="time">2020-3-16 08:29:05</span></div></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/master/zh-CN/community/pull-request.html" class="prev">
+        代码提交指南
+      </a></span> <span class="next"><a href="/master/zh-CN/community/subscribe-mail-list.html">
+        订阅邮件列表
+      </a>
+      →
+    </span></p></div> <footer><div class="footer-container" data-v-0fa04a49><br data-v-0fa04a49> <span class="footer-text" data-v-0fa04a49>© Copyright 2019, Apache Doris(Incubating)</span> <br data-v-0fa04a49> <span class="footer-text" data-v-0fa04a49>
+  Apache Doris(incubating) is an effort undergoing incubation at The Apache Software Foundation (ASF), sponsored by the Apache Incubator. Incubation is required of all newly accepted projects until a further review indicates that the infrastructure, communications, and decision making process have stabilized in a manner consistent with other successful ASF projects. While incubation status is not necessarily a reflection of the completeness or stability of the code, it does indicate that the project has yet to be fully endorsed by the ASF.</span></div></footer></main></div><div class="global-ui"></div></div>
+    <script src="/master/assets/js/app.666e9eda.js" defer></script><script src="/master/assets/js/4.b1bd2948.js" defer></script><script src="/master/assets/js/3.b0b9349c.js" defer></script><script src="/master/assets/js/297.06710d04.js" defer></script>
+  </body>
+</html>
