@@ -1,5 +1,5 @@
 module.exports = {
-  en: [
+  "en": [
     {
       text: "versions",
       items: [
