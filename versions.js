@@ -1,7 +1,7 @@
 module.exports = {
   "en": [
     {
-      text: "versions",
+      text: "Versions",
       items: [
         {
           text: "master",
