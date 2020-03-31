@@ -7,6 +7,11 @@
           "text": "master",
           "link": "/../master/en/installing/compilation.html",
           "target": "_blank"
+        },
+        {
+          "text": "incubating-test",
+          "link": "/../incubating-test/en/installing/compilation.html",
+          "target": "_blank"
         }
       ]
     }
@@ -17,7 +22,12 @@
       "items": [
         {
           "text": "master",
-          "link": "/../master/en/installing/compilation.html",
+          "link": "/../master/zh-CN/installing/compilation.html",
+          "target": "_blank"
+        },
+        {
+          "text": "incubating-test",
+          "link": "/../incubating-test/zh-CN/installing/compilation.html",
           "target": "_blank"
         }
       ]
