@@ -9,8 +9,8 @@
           "target": "_blank"
         },
         {
-          "text": "incubating-test",
-          "link": "/../incubating-test/en/installing/compilation.html",
+          "text": "branch-0.12",
+          "link": "/../branch-0.12/en/installing/compilation.html",
           "target": "_blank"
         }
       ]
@@ -26,8 +26,8 @@
           "target": "_blank"
         },
         {
-          "text": "incubating-test",
-          "link": "/../incubating-test/zh-CN/installing/compilation.html",
+          "text": "branch-0.12",
+          "link": "/../branch-0.12/zh-CN/installing/compilation.html",
           "target": "_blank"
         }
       ]
