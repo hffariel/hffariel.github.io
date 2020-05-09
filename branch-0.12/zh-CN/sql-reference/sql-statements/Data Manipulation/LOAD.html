@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>LOAD | Apache Doris</title>
+    <meta name="generator" content="VuePress 1.4.1">
+    
+    <meta name="description" content="Apache Doris">
+    <meta name="theme-color" content="#3eaf7c">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="msapplication-TileColor" content="#000000">
+    <link rel="preload" href="/branch-0.12/assets/css/0.styles.772b3911.css" as="style"><link rel="preload" href="/branch-0.12/assets/js/app.75381223.js" as="script"><link rel="preload" href="/branch-0.12/assets/js/4.52df3cb6.js" as="script"><link rel="preload" href="/branch-0.12/assets/js/3.dfdc1f39.js" as="script"><link rel="preload" href="/branch-0.12/assets/js/494.14ada05f.js" as="script"><link rel="prefetch" href="/branch-0.12/assets/js/10.5dd7a732.js"><link rel="prefetch" href="/branch-0.12/assets/js/100.5fe7c8aa.js"><link rel="prefetch" href="/branch-0.12/assets/js/101.1a0eaa6b.js"><link rel="prefetch" href="/branch-0.12/assets/js/102.66f57ea8.js"><link rel="prefetch" href="/branch-0.12/assets/js/103.2b300e66.js"><link rel="prefetch" href="/branch-0.12/assets/js/104.752df7b8.js"><link rel="prefetch" href="/branch-0.12/assets/js/105.c6085ec3.js"><link rel="prefetch" href="/branch-0.12/assets/js/106.00da5c70.js"><link rel="prefetch" href="/branch-0.12/assets/js/107.01ad7393.js"><link rel="prefetch" href="/branch-0.12/assets/js/108.f1c32595.js"><link rel="prefetch" href="/branch-0.12/assets/js/109.5b534317.js"><link rel="prefetch" href="/branch-0.12/assets/js/11.2a6fa7da.js"><link rel="prefetch" href="/branch-0.12/assets/js/110.fe77a53e.js"><link rel="prefetch" href="/branch-0.12/assets/js/111.e85152eb.js"><link rel="prefetch" href="/branch-0.12/assets/js/112.b82bfbf1.js"><link rel="prefetch" href="/branch-0.12/assets/js/113.89d32db8.js"><link rel="prefetch" href="/branch-0.12/assets/js/114.8347135c.js"><link rel="prefetch" href="/branch-0.12/assets/js/115.1ec8dd4c.js"><link rel="prefetch" href="/branch-0.12/assets/js/116.16192fd2.js"><link rel="prefetch" href="/branch-0.12/assets/js/117.537d73ad.js"><link rel="prefetch" href="/branch-0.12/assets/js/118.13a2b38b.js"><link rel="prefetch" href="/branch-0.12/assets/js/119.63730354.js"><link rel="prefetch" href="/branch-0.12/assets/js/12.c971e6dc.js"><link rel="prefetch" href="/branch-0.12/assets/js/120.6911addf.js"><link rel="prefetch" href="/branch-0.12/assets/js/121.0aa00be3.js"><link rel="prefetch" href="/branch-0.12/assets/js/122.2a973fea.js"><link rel="prefetch" href="/branch-0.12/assets/js/123.933455b7.js"><link rel="prefetch" href="/branch-0.12/assets/js/124.f50f45e3.js"><link rel="prefetch" href="/branch-0.12/assets/js/125.fdf3d06d.js"><link rel="prefetch" href="/branch-0.12/assets/js/126.5f77e442.js"><link rel="prefetch" href="/branch-0.12/assets/js/127.f4136040.js"><link rel="prefetch" href="/branch-0.12/assets/js/128.66e0b965.js"><link rel="prefetch" href="/branch-0.12/assets/js/129.4e442204.js"><link rel="prefetch" href="/branch-0.12/assets/js/13.1bc9d9f7.js"><link rel="prefetch" href="/branch-0.12/assets/js/130.66c3c865.js"><link rel="prefetch" href="/branch-0.12/assets/js/131.492cc20d.js"><link rel="prefetch" href="/branch-0.12/assets/js/132.8cfe59db.js"><link rel="prefetch" href="/branch-0.12/assets/js/133.baaac7fe.js"><link rel="prefetch" href="/branch-0.12/assets/js/134.0a6b3707.js"><link rel="prefetch" href="/branch-0.12/assets/js/135.9dd36632.js"><link rel="prefetch" href="/branch-0.12/assets/js/136.70d38c0f.js"><link rel="prefetch" href="/branch-0.12/assets/js/137.db5f9c22.js"><link rel="prefetch" href="/branch-0.12/assets/js/138.5a5724e4.js"><link rel="prefetch" href="/branch-0.12/assets/js/139.8c947a6c.js"><link rel="prefetch" href="/branch-0.12/assets/js/14.dee834cf.js"><link rel="prefetch" href="/branch-0.12/assets/js/140.c1738de4.js"><link rel="prefetch" href="/branch-0.12/assets/js/141.b2f8edb6.js"><link rel="prefetch" href="/branch-0.12/assets/js/142.81f6f5e1.js"><link rel="prefetch" href="/branch-0.12/assets/js/143.522b478a.js"><link rel="prefetch" href="/branch-0.12/assets/js/144.40ef94ee.js"><link rel="prefetch" href="/branch-0.12/assets/js/145.39f64bd4.js"><link rel="prefetch" href="/branch-0.12/assets/js/146.97074056.js"><link rel="prefetch" href="/branch-0.12/assets/js/147.65d80678.js"><link rel="prefetch" href="/branch-0.12/assets/js/148.b68fe59c.js"><link rel="prefetch" href="/branch-0.12/assets/js/149.9cdd3dd9.js"><link rel="prefetch" href="/branch-0.12/assets/js/15.3c035c11.js"><link rel="prefetch" href="/branch-0.12/assets/js/150.70fcaeb3.js"><link rel="prefetch" href="/branch-0.12/assets/js/151.536004a2.js"><link rel="prefetch" href="/branch-0.12/assets/js/152.9695e5b2.js"><link rel="prefetch" href="/branch-0.12/assets/js/153.1141a642.js"><link rel="prefetch" href="/branch-0.12/assets/js/154.be1ca5e7.js"><link rel="prefetch" href="/branch-0.12/assets/js/155.23a5a8dc.js"><link rel="prefetch" href="/branch-0.12/assets/js/156.69196eb8.js"><link rel="prefetch" href="/branch-0.12/assets/js/157.8c5e9410.js"><link rel="prefetch" href="/branch-0.12/assets/js/158.a83d2a83.js"><link rel="prefetch" href="/branch-0.12/assets/js/159.74e2a856.js"><link rel="prefetch" href="/branch-0.12/assets/js/16.b10b6c55.js"><link rel="prefetch" href="/branch-0.12/assets/js/160.fa296f05.js"><link rel="prefetch" href="/branch-0.12/assets/js/161.ff4c898d.js"><link rel="prefetch" href="/branch-0.12/assets/js/162.b4744836.js"><link rel="prefetch" href="/branch-0.12/assets/js/163.0c85b17f.js"><link rel="prefetch" href="/branch-0.12/assets/js/164.57148542.js"><link rel="prefetch" href="/branch-0.12/assets/js/165.9849de90.js"><link rel="prefetch" href="/branch-0.12/assets/js/166.e196615f.js"><link rel="prefetch" href="/branch-0.12/assets/js/167.85b99d1e.js"><link rel="prefetch" href="/branch-0.12/assets/js/168.4246f8dc.js"><link rel="prefetch" href="/branch-0.12/assets/js/169.a81849af.js"><link rel="prefetch" href="/branch-0.12/assets/js/17.f334bd12.js"><link rel="prefetch" href="/branch-0.12/assets/js/170.8fb24b16.js"><link rel="prefetch" href="/branch-0.12/assets/js/171.79acad97.js"><link rel="prefetch" href="/branch-0.12/assets/js/172.7da9267c.js"><link rel="prefetch" href="/branch-0.12/assets/js/173.85b9ff69.js"><link rel="prefetch" href="/branch-0.12/assets/js/174.c29619d5.js"><link rel="prefetch" href="/branch-0.12/assets/js/175.9fd991b8.js"><link rel="prefetch" href="/branch-0.12/assets/js/176.55542b38.js"><link rel="prefetch" href="/branch-0.12/assets/js/177.098cad56.js"><link rel="prefetch" href="/branch-0.12/assets/js/178.b431cb25.js"><link rel="prefetch" href="/branch-0.12/assets/js/179.b62a17d6.js"><link rel="prefetch" href="/branch-0.12/assets/js/18.1cadec6f.js"><link rel="prefetch" href="/branch-0.12/assets/js/180.73a6921f.js"><link rel="prefetch" href="/branch-0.12/assets/js/181.0b1c4d33.js"><link rel="prefetch" href="/branch-0.12/assets/js/182.73814ec4.js"><link rel="prefetch" href="/branch-0.12/assets/js/183.01fec44a.js"><link rel="prefetch" href="/branch-0.12/assets/js/184.63db8b00.js"><link rel="prefetch" href="/branch-0.12/assets/js/185.d40898bd.js"><link rel="prefetch" href="/branch-0.12/assets/js/186.8f6f048e.js"><link rel="prefetch" href="/branch-0.12/assets/js/187.c31f55cf.js"><link rel="prefetch" href="/branch-0.12/assets/js/188.67e6b4e0.js"><link rel="prefetch" href="/branch-0.12/assets/js/189.71de365f.js"><link rel="prefetch" href="/branch-0.12/assets/js/19.6451fb6d.js"><link rel="prefetch" href="/branch-0.12/assets/js/190.8fee0bad.js"><link rel="prefetch" href="/branch-0.12/assets/js/191.2edc4fc4.js"><link rel="prefetch" href="/branch-0.12/assets/js/192.893d2fea.js"><link rel="prefetch" href="/branch-0.12/assets/js/193.152b14c0.js"><link rel="prefetch" href="/branch-0.12/assets/js/194.22a81655.js"><link rel="prefetch" href="/branch-0.12/assets/js/195.1a52fc6b.js"><link rel="prefetch" href="/branch-0.12/assets/js/196.bb5cca63.js"><link rel="prefetch" href="/branch-0.12/assets/js/197.4d383d72.js"><link rel="prefetch" href="/branch-0.12/assets/js/198.ede6e4a3.js"><link rel="prefetch" href="/branch-0.12/assets/js/199.bfe2afab.js"><link rel="prefetch" href="/branch-0.12/assets/js/20.a3f8aa0b.js"><link rel="prefetch" href="/branch-0.12/assets/js/200.9193aef4.js"><link rel="prefetch" href="/branch-0.12/assets/js/201.71c2433a.js"><link rel="prefetch" href="/branch-0.12/assets/js/202.2bfe2446.js"><link rel="prefetch" href="/branch-0.12/assets/js/203.b0195841.js"><link rel="prefetch" href="/branch-0.12/assets/js/204.52343418.js"><link rel="prefetch" href="/branch-0.12/assets/js/205.afbb010c.js"><link rel="prefetch" href="/branch-0.12/assets/js/206.0b12ba08.js"><link rel="prefetch" href="/branch-0.12/assets/js/207.3039ffd3.js"><link rel="prefetch" href="/branch-0.12/assets/js/208.aca8248f.js"><link rel="prefetch" href="/branch-0.12/assets/js/209.acc4cb0a.js"><link rel="prefetch" href="/branch-0.12/assets/js/21.7c3e943d.js"><link rel="prefetch" href="/branch-0.12/assets/js/210.ad95eeff.js"><link rel="prefetch" href="/branch-0.12/assets/js/211.aee8bc15.js"><link rel="prefetch" href="/branch-0.12/assets/js/212.13b7930f.js"><link rel="prefetch" href="/branch-0.12/assets/js/213.37b0f144.js"><link rel="prefetch" href="/branch-0.12/assets/js/214.0f60dfc0.js"><link rel="prefetch" href="/branch-0.12/assets/js/215.ab0f3253.js"><link rel="prefetch" href="/branch-0.12/assets/js/216.5942af90.js"><link rel="prefetch" href="/branch-0.12/assets/js/217.b4fb6762.js"><link rel="prefetch" href="/branch-0.12/assets/js/218.4298db6a.js"><link rel="prefetch" href="/branch-0.12/assets/js/219.bf99d6ec.js"><link rel="prefetch" href="/branch-0.12/assets/js/22.79bff539.js"><link rel="prefetch" href="/branch-0.12/assets/js/220.82e6c99a.js"><link rel="prefetch" href="/branch-0.12/assets/js/221.2e4d8e16.js"><link rel="prefetch" href="/branch-0.12/assets/js/222.b6525d3a.js"><link rel="prefetch" href="/branch-0.12/assets/js/223.68862c46.js"><link rel="prefetch" href="/branch-0.12/assets/js/224.d803bbd6.js"><link rel="prefetch" href="/branch-0.12/assets/js/225.800004c4.js"><link rel="prefetch" href="/branch-0.12/assets/js/226.6762df34.js"><link rel="prefetch" href="/branch-0.12/assets/js/227.0647235c.js"><link rel="prefetch" href="/branch-0.12/assets/js/228.55087099.js"><link rel="prefetch" href="/branch-0.12/assets/js/229.332810bf.js"><link rel="prefetch" href="/branch-0.12/assets/js/23.b3af3909.js"><link rel="prefetch" href="/branch-0.12/assets/js/230.701fe546.js"><link rel="prefetch" href="/branch-0.12/assets/js/231.0ed0a79b.js"><link rel="prefetch" href="/branch-0.12/assets/js/232.0a43c8d8.js"><link rel="prefetch" href="/branch-0.12/assets/js/233.5c0018ee.js"><link rel="prefetch" href="/branch-0.12/assets/js/234.4451efbd.js"><link rel="prefetch" href="/branch-0.12/assets/js/235.f39e922d.js"><link rel="prefetch" href="/branch-0.12/assets/js/236.11471eaf.js"><link rel="prefetch" href="/branch-0.12/assets/js/237.8fbc458e.js"><link rel="prefetch" href="/branch-0.12/assets/js/238.dfac07ef.js"><link rel="prefetch" href="/branch-0.12/assets/js/239.e488da47.js"><link rel="prefetch" href="/branch-0.12/assets/js/24.48df038f.js"><link rel="prefetch" href="/branch-0.12/assets/js/240.141e066e.js"><link rel="prefetch" href="/branch-0.12/assets/js/241.8dfbe501.js"><link rel="prefetch" href="/branch-0.12/assets/js/242.61a5a45f.js"><link rel="prefetch" href="/branch-0.12/assets/js/243.5fa46f71.js"><link rel="prefetch" href="/branch-0.12/assets/js/244.34d49fdb.js"><link rel="prefetch" href="/branch-0.12/assets/js/245.61842b60.js"><link rel="prefetch" href="/branch-0.12/assets/js/246.f9dbba86.js"><link rel="prefetch" href="/branch-0.12/assets/js/247.22b9b5d2.js"><link rel="prefetch" href="/branch-0.12/assets/js/248.add44b50.js"><link rel="prefetch" href="/branch-0.12/assets/js/249.dc7372ce.js"><link rel="prefetch" href="/branch-0.12/assets/js/25.8db2ee6b.js"><link rel="prefetch" href="/branch-0.12/assets/js/250.7b98984f.js"><link rel="prefetch" href="/branch-0.12/assets/js/251.1563a82b.js"><link rel="prefetch" href="/branch-0.12/assets/js/252.e2a0efa0.js"><link rel="prefetch" href="/branch-0.12/assets/js/253.6933ca7c.js"><link rel="prefetch" href="/branch-0.12/assets/js/254.d2e0759f.js"><link rel="prefetch" href="/branch-0.12/assets/js/255.34de7d54.js"><link rel="prefetch" href="/branch-0.12/assets/js/256.3ce5c9db.js"><link rel="prefetch" href="/branch-0.12/assets/js/257.718c5c0e.js"><link rel="prefetch" href="/branch-0.12/assets/js/258.6b9c5340.js"><link rel="prefetch" href="/branch-0.12/assets/js/259.9290d7d2.js"><link rel="prefetch" href="/branch-0.12/assets/js/26.c54873dd.js"><link rel="prefetch" href="/branch-0.12/assets/js/260.7ffa94a3.js"><link rel="prefetch" href="/branch-0.12/assets/js/261.58fdf699.js"><link rel="prefetch" href="/branch-0.12/assets/js/262.4a7eb075.js"><link rel="prefetch" href="/branch-0.12/assets/js/263.fbcb9c39.js"><link rel="prefetch" href="/branch-0.12/assets/js/264.f5c19c7b.js"><link rel="prefetch" href="/branch-0.12/assets/js/265.08d722a2.js"><link rel="prefetch" href="/branch-0.12/assets/js/266.aa883726.js"><link rel="prefetch" href="/branch-0.12/assets/js/267.62c8251b.js"><link rel="prefetch" href="/branch-0.12/assets/js/268.c6dc2ba1.js"><link rel="prefetch" href="/branch-0.12/assets/js/269.63cfbfbf.js"><link rel="prefetch" href="/branch-0.12/assets/js/27.f37bd582.js"><link rel="prefetch" href="/branch-0.12/assets/js/270.32371cda.js"><link rel="prefetch" href="/branch-0.12/assets/js/271.0849d0cc.js"><link rel="prefetch" href="/branch-0.12/assets/js/272.81c2df98.js"><link rel="prefetch" href="/branch-0.12/assets/js/273.eddd37c3.js"><link rel="prefetch" href="/branch-0.12/assets/js/274.3f3a3973.js"><link rel="prefetch" href="/branch-0.12/assets/js/275.2d4b3809.js"><link rel="prefetch" href="/branch-0.12/assets/js/276.55c6fe69.js"><link rel="prefetch" href="/branch-0.12/assets/js/277.0f5813c6.js"><link rel="prefetch" href="/branch-0.12/assets/js/278.d91fc9e1.js"><link rel="prefetch" href="/branch-0.12/assets/js/279.abcfe4aa.js"><link rel="prefetch" href="/branch-0.12/assets/js/28.b87ca5f0.js"><link rel="prefetch" href="/branch-0.12/assets/js/280.0d8ae791.js"><link rel="prefetch" href="/branch-0.12/assets/js/281.2df24a83.js"><link rel="prefetch" href="/branch-0.12/assets/js/282.3b6274c0.js"><link rel="prefetch" href="/branch-0.12/assets/js/283.82424b6d.js"><link rel="prefetch" href="/branch-0.12/assets/js/284.2a30ccbf.js"><link rel="prefetch" href="/branch-0.12/assets/js/285.2ff5f7fe.js"><link rel="prefetch" href="/branch-0.12/assets/js/286.75db2d27.js"><link rel="prefetch" href="/branch-0.12/assets/js/287.02a584f5.js"><link rel="prefetch" href="/branch-0.12/assets/js/288.6e8bdf07.js"><link rel="prefetch" href="/branch-0.12/assets/js/289.d3904690.js"><link rel="prefetch" href="/branch-0.12/assets/js/29.39de85ee.js"><link rel="prefetch" href="/branch-0.12/assets/js/290.a66f81f8.js"><link rel="prefetch" href="/branch-0.12/assets/js/291.fbd7f495.js"><link rel="prefetch" href="/branch-0.12/assets/js/292.fe61cdb0.js"><link rel="prefetch" href="/branch-0.12/assets/js/293.e1b3fdc5.js"><link rel="prefetch" href="/branch-0.12/assets/js/294.4877aa49.js"><link rel="prefetch" href="/branch-0.12/assets/js/295.7cac059e.js"><link rel="prefetch" href="/branch-0.12/assets/js/296.515fe28c.js"><link rel="prefetch" href="/branch-0.12/assets/js/297.66eed559.js"><link rel="prefetch" href="/branch-0.12/assets/js/298.ab2d14a4.js"><link rel="prefetch" href="/branch-0.12/assets/js/299.3f63d1bb.js"><link rel="prefetch" href="/branch-0.12/assets/js/30.2a6c5670.js"><link rel="prefetch" href="/branch-0.12/assets/js/300.938cf663.js"><link rel="prefetch" href="/branch-0.12/assets/js/301.e3761b8d.js"><link rel="prefetch" href="/branch-0.12/assets/js/302.bc5e417c.js"><link rel="prefetch" href="/branch-0.12/assets/js/303.dc1a86e8.js"><link rel="prefetch" href="/branch-0.12/assets/js/304.bed6c083.js"><link rel="prefetch" href="/branch-0.12/assets/js/305.f536d174.js"><link rel="prefetch" href="/branch-0.12/assets/js/306.e2be3b81.js"><link rel="prefetch" href="/branch-0.12/assets/js/307.4e37a343.js"><link rel="prefetch" href="/branch-0.12/assets/js/308.5fd9cc53.js"><link rel="prefetch" href="/branch-0.12/assets/js/309.fc75f7bd.js"><link rel="prefetch" href="/branch-0.12/assets/js/31.aeca517f.js"><link rel="prefetch" href="/branch-0.12/assets/js/310.d7f83952.js"><link rel="prefetch" href="/branch-0.12/assets/js/311.62d67221.js"><link rel="prefetch" href="/branch-0.12/assets/js/312.732ed11e.js"><link rel="prefetch" href="/branch-0.12/assets/js/313.8c081cbf.js"><link rel="prefetch" href="/branch-0.12/assets/js/314.58f3a2ad.js"><link rel="prefetch" href="/branch-0.12/assets/js/315.98bce0a9.js"><link rel="prefetch" href="/branch-0.12/assets/js/316.79679b99.js"><link rel="prefetch" href="/branch-0.12/assets/js/317.e7626918.js"><link rel="prefetch" href="/branch-0.12/assets/js/318.0e68c4ae.js"><link rel="prefetch" href="/branch-0.12/assets/js/319.d41e0b21.js"><link rel="prefetch" href="/branch-0.12/assets/js/32.dc3547ff.js"><link rel="prefetch" href="/branch-0.12/assets/js/320.c9974a70.js"><link rel="prefetch" href="/branch-0.12/assets/js/321.4e5554a6.js"><link rel="prefetch" href="/branch-0.12/assets/js/322.907a831a.js"><link rel="prefetch" href="/branch-0.12/assets/js/323.2b05e391.js"><link rel="prefetch" href="/branch-0.12/assets/js/324.b5a27b94.js"><link rel="prefetch" href="/branch-0.12/assets/js/325.3490a1eb.js"><link rel="prefetch" href="/branch-0.12/assets/js/326.2b59b409.js"><link rel="prefetch" href="/branch-0.12/assets/js/327.0fc0b8c7.js"><link rel="prefetch" href="/branch-0.12/assets/js/328.ca871a25.js"><link rel="prefetch" href="/branch-0.12/assets/js/329.ba157cce.js"><link rel="prefetch" href="/branch-0.12/assets/js/33.b649679e.js"><link rel="prefetch" href="/branch-0.12/assets/js/330.7dd4cccd.js"><link rel="prefetch" href="/branch-0.12/assets/js/331.7f930090.js"><link rel="prefetch" href="/branch-0.12/assets/js/332.e253cf64.js"><link rel="prefetch" href="/branch-0.12/assets/js/333.06790e45.js"><link rel="prefetch" href="/branch-0.12/assets/js/334.bceacd33.js"><link rel="prefetch" href="/branch-0.12/assets/js/335.ec87000d.js"><link rel="prefetch" href="/branch-0.12/assets/js/336.710477e0.js"><link rel="prefetch" href="/branch-0.12/assets/js/337.2c276c6c.js"><link rel="prefetch" href="/branch-0.12/assets/js/338.5aa74595.js"><link rel="prefetch" href="/branch-0.12/assets/js/339.b1b35d28.js"><link rel="prefetch" href="/branch-0.12/assets/js/34.2cc36ea3.js"><link rel="prefetch" href="/branch-0.12/assets/js/340.7cc3476e.js"><link rel="prefetch" href="/branch-0.12/assets/js/341.b6a19985.js"><link rel="prefetch" href="/branch-0.12/assets/js/342.23a36575.js"><link rel="prefetch" href="/branch-0.12/assets/js/343.a9f2c790.js"><link rel="prefetch" href="/branch-0.12/assets/js/344.b4f9b08b.js"><link rel="prefetch" href="/branch-0.12/assets/js/345.87b8d696.js"><link rel="prefetch" href="/branch-0.12/assets/js/346.0aee0371.js"><link rel="prefetch" href="/branch-0.12/assets/js/347.30ce3daf.js"><link rel="prefetch" href="/branch-0.12/assets/js/348.05862d95.js"><link rel="prefetch" href="/branch-0.12/assets/js/349.eacb9851.js"><link rel="prefetch" href="/branch-0.12/assets/js/35.41f729eb.js"><link rel="prefetch" href="/branch-0.12/assets/js/350.f5711835.js"><link rel="prefetch" href="/branch-0.12/assets/js/351.c63aa52f.js"><link rel="prefetch" href="/branch-0.12/assets/js/352.59df6c8f.js"><link rel="prefetch" href="/branch-0.12/assets/js/353.243129f9.js"><link rel="prefetch" href="/branch-0.12/assets/js/354.29b09bac.js"><link rel="prefetch" href="/branch-0.12/assets/js/355.c5993a48.js"><link rel="prefetch" href="/branch-0.12/assets/js/356.4a5ebf40.js"><link rel="prefetch" href="/branch-0.12/assets/js/357.c5086237.js"><link rel="prefetch" href="/branch-0.12/assets/js/358.8a49d10b.js"><link rel="prefetch" href="/branch-0.12/assets/js/359.d3b081b7.js"><link rel="prefetch" href="/branch-0.12/assets/js/36.d1234506.js"><link rel="prefetch" href="/branch-0.12/assets/js/360.00856274.js"><link rel="prefetch" href="/branch-0.12/assets/js/361.55b143c3.js"><link rel="prefetch" href="/branch-0.12/assets/js/362.6ba345af.js"><link rel="prefetch" href="/branch-0.12/assets/js/363.108a6fd2.js"><link rel="prefetch" href="/branch-0.12/assets/js/364.37309785.js"><link rel="prefetch" href="/branch-0.12/assets/js/365.a38cb4e0.js"><link rel="prefetch" href="/branch-0.12/assets/js/366.3f80f271.js"><link rel="prefetch" href="/branch-0.12/assets/js/367.ce367d60.js"><link rel="prefetch" href="/branch-0.12/assets/js/368.d0f81d44.js"><link rel="prefetch" href="/branch-0.12/assets/js/369.1e01d5cb.js"><link rel="prefetch" href="/branch-0.12/assets/js/37.c9f67ffa.js"><link rel="prefetch" href="/branch-0.12/assets/js/370.2d590b75.js"><link rel="prefetch" href="/branch-0.12/assets/js/371.73041ca4.js"><link rel="prefetch" href="/branch-0.12/assets/js/372.17cd1cb6.js"><link rel="prefetch" href="/branch-0.12/assets/js/373.0422c05d.js"><link rel="prefetch" href="/branch-0.12/assets/js/374.2afb4b2c.js"><link rel="prefetch" href="/branch-0.12/assets/js/375.c0388f28.js"><link rel="prefetch" href="/branch-0.12/assets/js/376.de608500.js"><link rel="prefetch" href="/branch-0.12/assets/js/377.ac846c0d.js"><link rel="prefetch" href="/branch-0.12/assets/js/378.47722ad8.js"><link rel="prefetch" href="/branch-0.12/assets/js/379.a0f7b4c9.js"><link rel="prefetch" href="/branch-0.12/assets/js/38.d0fc5f82.js"><link rel="prefetch" href="/branch-0.12/assets/js/380.191537fa.js"><link rel="prefetch" href="/branch-0.12/assets/js/381.42c1cd1e.js"><link rel="prefetch" href="/branch-0.12/assets/js/382.cf698dee.js"><link rel="prefetch" href="/branch-0.12/assets/js/383.1c81ac0a.js"><link rel="prefetch" href="/branch-0.12/assets/js/384.c3bc7330.js"><link rel="prefetch" href="/branch-0.12/assets/js/385.e2d2388b.js"><link rel="prefetch" href="/branch-0.12/assets/js/386.9a955094.js"><link rel="prefetch" href="/branch-0.12/assets/js/387.873892e8.js"><link rel="prefetch" href="/branch-0.12/assets/js/388.116311df.js"><link rel="prefetch" href="/branch-0.12/assets/js/389.7787c12a.js"><link rel="prefetch" href="/branch-0.12/assets/js/39.e4aeedfc.js"><link rel="prefetch" href="/branch-0.12/assets/js/390.75eeebe8.js"><link rel="prefetch" href="/branch-0.12/assets/js/391.c5860024.js"><link rel="prefetch" href="/branch-0.12/assets/js/392.37fee45d.js"><link rel="prefetch" href="/branch-0.12/assets/js/393.01c8f4bd.js"><link rel="prefetch" href="/branch-0.12/assets/js/394.d88be6b1.js"><link rel="prefetch" href="/branch-0.12/assets/js/395.6338feaf.js"><link rel="prefetch" href="/branch-0.12/assets/js/396.30c7007a.js"><link rel="prefetch" href="/branch-0.12/assets/js/397.366ba3f1.js"><link rel="prefetch" href="/branch-0.12/assets/js/398.e7e26464.js"><link rel="prefetch" href="/branch-0.12/assets/js/399.b81b54f9.js"><link rel="prefetch" href="/branch-0.12/assets/js/40.94199dcd.js"><link rel="prefetch" href="/branch-0.12/assets/js/400.c0491455.js"><link rel="prefetch" href="/branch-0.12/assets/js/401.468425b7.js"><link rel="prefetch" href="/branch-0.12/assets/js/402.659d4948.js"><link rel="prefetch" href="/branch-0.12/assets/js/403.9b68c612.js"><link rel="prefetch" href="/branch-0.12/assets/js/404.d715a962.js"><link rel="prefetch" href="/branch-0.12/assets/js/405.dd4c6c49.js"><link rel="prefetch" href="/branch-0.12/assets/js/406.cbde4517.js"><link rel="prefetch" href="/branch-0.12/assets/js/407.e8a743c5.js"><link rel="prefetch" href="/branch-0.12/assets/js/408.c7a5ee92.js"><link rel="prefetch" href="/branch-0.12/assets/js/409.99931dd8.js"><link rel="prefetch" href="/branch-0.12/assets/js/41.e7b6b743.js"><link rel="prefetch" href="/branch-0.12/assets/js/410.3734dfab.js"><link rel="prefetch" href="/branch-0.12/assets/js/411.85de2820.js"><link rel="prefetch" href="/branch-0.12/assets/js/412.7d75960c.js"><link rel="prefetch" href="/branch-0.12/assets/js/413.cb97abf1.js"><link rel="prefetch" href="/branch-0.12/assets/js/414.494e3f0e.js"><link rel="prefetch" href="/branch-0.12/assets/js/415.fce7a471.js"><link rel="prefetch" href="/branch-0.12/assets/js/416.a5879a06.js"><link rel="prefetch" href="/branch-0.12/assets/js/417.e6488f2c.js"><link rel="prefetch" href="/branch-0.12/assets/js/418.7753d2b5.js"><link rel="prefetch" href="/branch-0.12/assets/js/419.6900e3ac.js"><link rel="prefetch" href="/branch-0.12/assets/js/42.fcae55ff.js"><link rel="prefetch" href="/branch-0.12/assets/js/420.7e78744c.js"><link rel="prefetch" href="/branch-0.12/assets/js/421.e8d34908.js"><link rel="prefetch" href="/branch-0.12/assets/js/422.5eacb111.js"><link rel="prefetch" href="/branch-0.12/assets/js/423.05e08d8a.js"><link rel="prefetch" href="/branch-0.12/assets/js/424.cfa5c269.js"><link rel="prefetch" href="/branch-0.12/assets/js/425.d9ab9e82.js"><link rel="prefetch" href="/branch-0.12/assets/js/426.1316d4e6.js"><link rel="prefetch" href="/branch-0.12/assets/js/427.c02f1a83.js"><link rel="prefetch" href="/branch-0.12/assets/js/428.fc4220b3.js"><link rel="prefetch" href="/branch-0.12/assets/js/429.86c2cb70.js"><link rel="prefetch" href="/branch-0.12/assets/js/43.30073dae.js"><link rel="prefetch" href="/branch-0.12/assets/js/430.88a2a577.js"><link rel="prefetch" href="/branch-0.12/assets/js/431.664c7c40.js"><link rel="prefetch" href="/branch-0.12/assets/js/432.cd067c8c.js"><link rel="prefetch" href="/branch-0.12/assets/js/433.d480a9be.js"><link rel="prefetch" href="/branch-0.12/assets/js/434.6dd504a7.js"><link rel="prefetch" href="/branch-0.12/assets/js/435.3ac69ea8.js"><link rel="prefetch" href="/branch-0.12/assets/js/436.6e03439c.js"><link rel="prefetch" href="/branch-0.12/assets/js/437.8b07a575.js"><link rel="prefetch" href="/branch-0.12/assets/js/438.7c0171bd.js"><link rel="prefetch" href="/branch-0.12/assets/js/439.e0d37be2.js"><link rel="prefetch" href="/branch-0.12/assets/js/44.e590a8fd.js"><link rel="prefetch" href="/branch-0.12/assets/js/440.4321558a.js"><link rel="prefetch" href="/branch-0.12/assets/js/441.cffff669.js"><link rel="prefetch" href="/branch-0.12/assets/js/442.d038ae44.js"><link rel="prefetch" href="/branch-0.12/assets/js/443.b4dddd93.js"><link rel="prefetch" href="/branch-0.12/assets/js/444.39896ba8.js"><link rel="prefetch" href="/branch-0.12/assets/js/445.01d306b6.js"><link rel="prefetch" href="/branch-0.12/assets/js/446.ac9076f4.js"><link rel="prefetch" href="/branch-0.12/assets/js/447.720758dc.js"><link rel="prefetch" href="/branch-0.12/assets/js/448.5b8bda54.js"><link rel="prefetch" href="/branch-0.12/assets/js/449.648b3bd4.js"><link rel="prefetch" href="/branch-0.12/assets/js/45.0a699b7c.js"><link rel="prefetch" href="/branch-0.12/assets/js/450.aceb66f9.js"><link rel="prefetch" href="/branch-0.12/assets/js/451.a4172403.js"><link rel="prefetch" href="/branch-0.12/assets/js/452.8f54c54c.js"><link rel="prefetch" href="/branch-0.12/assets/js/453.3b34f469.js"><link rel="prefetch" href="/branch-0.12/assets/js/454.6bec768e.js"><link rel="prefetch" href="/branch-0.12/assets/js/455.8e589804.js"><link rel="prefetch" href="/branch-0.12/assets/js/456.97626af4.js"><link rel="prefetch" href="/branch-0.12/assets/js/457.ef1f6bc9.js"><link rel="prefetch" href="/branch-0.12/assets/js/458.24fb4bf0.js"><link rel="prefetch" href="/branch-0.12/assets/js/459.edb46d67.js"><link rel="prefetch" href="/branch-0.12/assets/js/46.a7ad3667.js"><link rel="prefetch" href="/branch-0.12/assets/js/460.d2dd182a.js"><link rel="prefetch" href="/branch-0.12/assets/js/461.b1f305a8.js"><link rel="prefetch" href="/branch-0.12/assets/js/462.ede47e98.js"><link rel="prefetch" href="/branch-0.12/assets/js/463.212df22c.js"><link rel="prefetch" href="/branch-0.12/assets/js/464.033341d7.js"><link rel="prefetch" href="/branch-0.12/assets/js/465.e9d631b3.js"><link rel="prefetch" href="/branch-0.12/assets/js/466.1a0c5cc8.js"><link rel="prefetch" href="/branch-0.12/assets/js/467.4bbc24fe.js"><link rel="prefetch" href="/branch-0.12/assets/js/468.10bd1eec.js"><link rel="prefetch" href="/branch-0.12/assets/js/469.f6bdadfc.js"><link rel="prefetch" href="/branch-0.12/assets/js/47.7e069aa0.js"><link rel="prefetch" href="/branch-0.12/assets/js/470.24d024e2.js"><link rel="prefetch" href="/branch-0.12/assets/js/471.3e400e5f.js"><link rel="prefetch" href="/branch-0.12/assets/js/472.f207a05c.js"><link rel="prefetch" href="/branch-0.12/assets/js/473.6401004f.js"><link rel="prefetch" href="/branch-0.12/assets/js/474.71d03baa.js"><link rel="prefetch" href="/branch-0.12/assets/js/475.675d697a.js"><link rel="prefetch" href="/branch-0.12/assets/js/476.36d4ba79.js"><link rel="prefetch" href="/branch-0.12/assets/js/477.0ff1cb97.js"><link rel="prefetch" href="/branch-0.12/assets/js/478.78fbffef.js"><link rel="prefetch" href="/branch-0.12/assets/js/479.b70cc6e2.js"><link rel="prefetch" href="/branch-0.12/assets/js/48.9a3397f3.js"><link rel="prefetch" href="/branch-0.12/assets/js/480.a80cf322.js"><link rel="prefetch" href="/branch-0.12/assets/js/481.e4091b13.js"><link rel="prefetch" href="/branch-0.12/assets/js/482.a58990bc.js"><link rel="prefetch" href="/branch-0.12/assets/js/483.89312d6d.js"><link rel="prefetch" href="/branch-0.12/assets/js/484.69030004.js"><link rel="prefetch" href="/branch-0.12/assets/js/485.0ee33cc5.js"><link rel="prefetch" href="/branch-0.12/assets/js/486.e05f5236.js"><link rel="prefetch" href="/branch-0.12/assets/js/487.67623757.js"><link rel="prefetch" href="/branch-0.12/assets/js/488.e1c82a72.js"><link rel="prefetch" href="/branch-0.12/assets/js/489.fb81f933.js"><link rel="prefetch" href="/branch-0.12/assets/js/49.8bec4567.js"><link rel="prefetch" href="/branch-0.12/assets/js/490.e068d4ed.js"><link rel="prefetch" href="/branch-0.12/assets/js/491.410d1f43.js"><link rel="prefetch" href="/branch-0.12/assets/js/492.90bcec08.js"><link rel="prefetch" href="/branch-0.12/assets/js/493.d632a16b.js"><link rel="prefetch" href="/branch-0.12/assets/js/495.dd6312c6.js"><link rel="prefetch" href="/branch-0.12/assets/js/496.1b41370f.js"><link rel="prefetch" href="/branch-0.12/assets/js/497.fe434558.js"><link rel="prefetch" href="/branch-0.12/assets/js/498.bf8937bd.js"><link rel="prefetch" href="/branch-0.12/assets/js/499.1be974c0.js"><link rel="prefetch" href="/branch-0.12/assets/js/5.30d750bf.js"><link rel="prefetch" href="/branch-0.12/assets/js/50.a3692f41.js"><link rel="prefetch" href="/branch-0.12/assets/js/500.83e73481.js"><link rel="prefetch" href="/branch-0.12/assets/js/501.52352657.js"><link rel="prefetch" href="/branch-0.12/assets/js/502.bb431f15.js"><link rel="prefetch" href="/branch-0.12/assets/js/503.3a174e02.js"><link rel="prefetch" href="/branch-0.12/assets/js/504.a5dd2325.js"><link rel="prefetch" href="/branch-0.12/assets/js/505.3d3e5332.js"><link rel="prefetch" href="/branch-0.12/assets/js/506.6cf789ea.js"><link rel="prefetch" href="/branch-0.12/assets/js/507.a97a5f38.js"><link rel="prefetch" href="/branch-0.12/assets/js/508.cf22fba5.js"><link rel="prefetch" href="/branch-0.12/assets/js/509.1914a8e3.js"><link rel="prefetch" href="/branch-0.12/assets/js/51.fb8ade06.js"><link rel="prefetch" href="/branch-0.12/assets/js/510.795c5775.js"><link rel="prefetch" href="/branch-0.12/assets/js/511.3559c04e.js"><link rel="prefetch" href="/branch-0.12/assets/js/512.7b365ba6.js"><link rel="prefetch" href="/branch-0.12/assets/js/513.f5af0d1f.js"><link rel="prefetch" href="/branch-0.12/assets/js/514.881858ce.js"><link rel="prefetch" href="/branch-0.12/assets/js/515.e19b0526.js"><link rel="prefetch" href="/branch-0.12/assets/js/516.0e57eb88.js"><link rel="prefetch" href="/branch-0.12/assets/js/517.caed0bc7.js"><link rel="prefetch" href="/branch-0.12/assets/js/518.5ede3d59.js"><link rel="prefetch" href="/branch-0.12/assets/js/519.1813f6e5.js"><link rel="prefetch" href="/branch-0.12/assets/js/52.ecaec071.js"><link rel="prefetch" href="/branch-0.12/assets/js/520.265b814f.js"><link rel="prefetch" href="/branch-0.12/assets/js/521.c662fa95.js"><link rel="prefetch" href="/branch-0.12/assets/js/522.7bce4ca7.js"><link rel="prefetch" href="/branch-0.12/assets/js/523.e9f3d12b.js"><link rel="prefetch" href="/branch-0.12/assets/js/524.975d8231.js"><link rel="prefetch" href="/branch-0.12/assets/js/525.51bfb8d2.js"><link rel="prefetch" href="/branch-0.12/assets/js/526.7cecd7ab.js"><link rel="prefetch" href="/branch-0.12/assets/js/527.5100e94d.js"><link rel="prefetch" href="/branch-0.12/assets/js/528.2eee5bdb.js"><link rel="prefetch" href="/branch-0.12/assets/js/529.eeba3b50.js"><link rel="prefetch" href="/branch-0.12/assets/js/53.148c38a8.js"><link rel="prefetch" href="/branch-0.12/assets/js/530.58f6b407.js"><link rel="prefetch" href="/branch-0.12/assets/js/531.a5572ef8.js"><link rel="prefetch" href="/branch-0.12/assets/js/532.3e3ddf6a.js"><link rel="prefetch" href="/branch-0.12/assets/js/533.ec68f08f.js"><link rel="prefetch" href="/branch-0.12/assets/js/534.c579e274.js"><link rel="prefetch" href="/branch-0.12/assets/js/535.9d7cf671.js"><link rel="prefetch" href="/branch-0.12/assets/js/536.4dfd9143.js"><link rel="prefetch" href="/branch-0.12/assets/js/54.46764db9.js"><link rel="prefetch" href="/branch-0.12/assets/js/55.0819eb6b.js"><link rel="prefetch" href="/branch-0.12/assets/js/56.4eff4fa1.js"><link rel="prefetch" href="/branch-0.12/assets/js/57.fadfd070.js"><link rel="prefetch" href="/branch-0.12/assets/js/58.c22afb16.js"><link rel="prefetch" href="/branch-0.12/assets/js/59.8f434d23.js"><link rel="prefetch" href="/branch-0.12/assets/js/6.dc15e173.js"><link rel="prefetch" href="/branch-0.12/assets/js/60.3a78564c.js"><link rel="prefetch" href="/branch-0.12/assets/js/61.a62d8281.js"><link rel="prefetch" href="/branch-0.12/assets/js/62.83f6d4b9.js"><link rel="prefetch" href="/branch-0.12/assets/js/63.708cdc4f.js"><link rel="prefetch" href="/branch-0.12/assets/js/64.f3d1a558.js"><link rel="prefetch" href="/branch-0.12/assets/js/65.87164155.js"><link rel="prefetch" href="/branch-0.12/assets/js/66.8108c50e.js"><link rel="prefetch" href="/branch-0.12/assets/js/67.c3b87592.js"><link rel="prefetch" href="/branch-0.12/assets/js/68.33e3d90d.js"><link rel="prefetch" href="/branch-0.12/assets/js/69.b7ce9fe6.js"><link rel="prefetch" href="/branch-0.12/assets/js/7.ab436095.js"><link rel="prefetch" href="/branch-0.12/assets/js/70.82ac49f7.js"><link rel="prefetch" href="/branch-0.12/assets/js/71.0bbcc2fc.js"><link rel="prefetch" href="/branch-0.12/assets/js/72.bf930a0e.js"><link rel="prefetch" href="/branch-0.12/assets/js/73.cd285ab6.js"><link rel="prefetch" href="/branch-0.12/assets/js/74.47ff1ecb.js"><link rel="prefetch" href="/branch-0.12/assets/js/75.35b231d5.js"><link rel="prefetch" href="/branch-0.12/assets/js/76.1a632f9e.js"><link rel="prefetch" href="/branch-0.12/assets/js/77.3432ad4d.js"><link rel="prefetch" href="/branch-0.12/assets/js/78.b987e91d.js"><link rel="prefetch" href="/branch-0.12/assets/js/79.84b22d30.js"><link rel="prefetch" href="/branch-0.12/assets/js/8.1de3ac5a.js"><link rel="prefetch" href="/branch-0.12/assets/js/80.5da613a8.js"><link rel="prefetch" href="/branch-0.12/assets/js/81.3d4f6fe3.js"><link rel="prefetch" href="/branch-0.12/assets/js/82.032f41a8.js"><link rel="prefetch" href="/branch-0.12/assets/js/83.cf72ae3b.js"><link rel="prefetch" href="/branch-0.12/assets/js/84.fa6658bd.js"><link rel="prefetch" href="/branch-0.12/assets/js/85.4c487857.js"><link rel="prefetch" href="/branch-0.12/assets/js/86.055f6fe8.js"><link rel="prefetch" href="/branch-0.12/assets/js/87.9a66b0c4.js"><link rel="prefetch" href="/branch-0.12/assets/js/88.ff74abc5.js"><link rel="prefetch" href="/branch-0.12/assets/js/89.cdd0d944.js"><link rel="prefetch" href="/branch-0.12/assets/js/9.8acb2006.js"><link rel="prefetch" href="/branch-0.12/assets/js/90.408b62d2.js"><link rel="prefetch" href="/branch-0.12/assets/js/91.31953e63.js"><link rel="prefetch" href="/branch-0.12/assets/js/92.52d5b2a4.js"><link rel="prefetch" href="/branch-0.12/assets/js/93.3adecbb0.js"><link rel="prefetch" href="/branch-0.12/assets/js/94.da94ebb1.js"><link rel="prefetch" href="/branch-0.12/assets/js/95.f1a5e9b5.js"><link rel="prefetch" href="/branch-0.12/assets/js/96.ad7bd16c.js"><link rel="prefetch" href="/branch-0.12/assets/js/97.f45f11c0.js"><link rel="prefetch" href="/branch-0.12/assets/js/98.fb079e26.js"><link rel="prefetch" href="/branch-0.12/assets/js/99.5ba5567a.js"><link rel="prefetch" href="/branch-0.12/assets/js/vendors~docsearch.766da031.js">
+    <link rel="stylesheet" href="/branch-0.12/assets/css/0.styles.772b3911.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/branch-0.12/zh-CN/" class="home-link router-link-active"><img src="/branch-0.12/images/doris-logo-only.png" alt="Apache Doris" class="logo"> <span class="site-name can-hide">Apache Doris</span></a> <div class="links"><form id="search-form" role="search" class="algolia-search-wrapper search-box"><input id="algolia-search-input" class="search-query"></form> <nav class="nav-links can-hide"><div class="nav-item"><a href="/branch-0.12/zh-CN/" class="nav-link">
+  主页
+</a></div><div class="nav-item"><a href="/branch-0.12/zh-CN/installing/compilation.html" class="nav-link">
+  文档
+</a></div><div class="nav-item"><a href="/branch-0.12/zh-CN/downloads/downloads.html" class="nav-link">
+  下载
+</a></div><div class="nav-item"><a href="https://www.apache.org/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Apache
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Select language" class="dropdown-title"><span class="title">选择语言</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/branch-0.12/en/sql-reference/sql-statements/Data Manipulation/LOAD.html" class="nav-link">
+  English
+</a></li><li class="dropdown-item"><!----> <a href="/branch-0.12/zh-CN/sql-reference/sql-statements/Data Manipulation/LOAD.html" class="nav-link">
+  简体中文
+</a></li></ul></div></div> <a href="https://github.com/apache/incubator-doris" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/branch-0.12/zh-CN/" class="nav-link">
+  主页
+</a></div><div class="nav-item"><a href="/branch-0.12/zh-CN/installing/compilation.html" class="nav-link">
+  文档
+</a></div><div class="nav-item"><a href="/branch-0.12/zh-CN/downloads/downloads.html" class="nav-link">
+  下载
+</a></div><div class="nav-item"><a href="https://www.apache.org/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Apache
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Select language" class="dropdown-title"><span class="title">选择语言</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/branch-0.12/en/sql-reference/sql-statements/Data Manipulation/LOAD.html" class="nav-link">
+  English
+</a></li><li class="dropdown-item"><!----> <a href="/branch-0.12/zh-CN/sql-reference/sql-statements/Data Manipulation/LOAD.html" class="nav-link">
+  简体中文
+</a></li></ul></div></div> <a href="https://github.com/apache/incubator-doris" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></nav>  <ul class="sidebar-links"><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>下载</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>编译与部署</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>开始使用</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>操作手册</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>扩展功能</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>设计文档</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading open"><span>SQL 手册</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><section class="sidebar-group collapsable is-sub-group depth-1"><p class="sidebar-heading"><span>SQL 函数</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable is-sub-group depth-1"><p class="sidebar-heading open"><span>语法帮助</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><section class="sidebar-group collapsable is-sub-group depth-2"><p class="sidebar-heading"><span>用户账户管理</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable is-sub-group depth-2"><p class="sidebar-heading"><span>集群管理</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable is-sub-group depth-2"><p class="sidebar-heading"><span>DDL</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable is-sub-group depth-2"><p class="sidebar-heading open"><span>DML</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/branch-0.12/zh-CN/sql-reference/sql-statements/Data Manipulation/BROKER LOAD.html" class="sidebar-link">BROKER LOAD</a></li><li><a href="/branch-0.12/zh-CN/sql-reference/sql-statements/Data Manipulation/CANCEL LOAD.html" class="sidebar-link">CANCEL LOAD</a></li><li><a href="/branch-0.12/zh-CN/sql-reference/sql-statements/Data Manipulation/DELETE.html" class="sidebar-link">DELETE</a></li><li><a href="/branch-0.12/zh-CN/sql-reference/sql-statements/Data Manipulation/EXPORT.html" class="sidebar-link">EXPORT</a></li><li><a href="/branch-0.12/zh-CN/sql-reference/sql-statements/Data Manipulation/GROUP BY.html" class="sidebar-link">GROUP BY</a></li><li><a href="/branch-0.12/zh-CN/sql-reference/sql-statements/Data Manipulation/insert.html" class="sidebar-link">INSERT</a></li><li><a href="/branch-0.12/zh-CN/sql-reference/sql-statements/Data Manipulation/LOAD.html" class="active sidebar-link">LOAD</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/branch-0.12/zh-CN/sql-reference/sql-statements/Data Manipulation/LOAD.html#description" class="sidebar-link">description</a></li><li class="sidebar-sub-header"><a href="/branch-0.12/zh-CN/sql-reference/sql-statements/Data Manipulation/LOAD.html#example" class="sidebar-link">example</a></li><li class="sidebar-sub-header"><a href="/branch-0.12/zh-CN/sql-reference/sql-statements/Data Manipulation/LOAD.html#keyword" class="sidebar-link">keyword</a></li></ul></li><li><a href="/branch-0.12/zh-CN/sql-reference/sql-statements/Data Manipulation/MINI LOAD.html" class="sidebar-link">MINI LOAD</a></li><li><a href="/branch-0.12/zh-CN/sql-reference/sql-statements/Data Manipulation/MULTI LOAD.html" class="sidebar-link">MULTI LOAD</a></li><li><a href="/branch-0.12/zh-CN/sql-reference/sql-statements/Data Manipulation/PAUSE ROUTINE LOAD.html" class="sidebar-link">PAUSE ROUTINE LOAD</a></li><li><a href="/branch-0.12/zh-CN/sql-reference/sql-statements/Data Manipulation/RESUME ROUTINE LOAD.html" class="sidebar-link">RESUME ROUTINE LOAD</a></li><li><a href="/branch-0.12/zh-CN/sql-reference/sql-statements/Data Manipulation/ROUTINE LOAD.html" class="sidebar-link">ROUTINE LOAD</a></li><li><a href="/branch-0.12/zh-CN/sql-reference/sql-statements/Data Manipulation/SHOW ALTER.html" class="sidebar-link">SHOW ALTER</a></li><li><a href="/branch-0.12/zh-CN/sql-reference/sql-statements/Data Manipulation/SHOW BACKUP.html" class="sidebar-link">SHOW BACKUP</a></li><li><a href="/branch-0.12/zh-CN/sql-reference/sql-statements/Data Manipulation/SHOW DATA.html" class="sidebar-link">SHOW DATA</a></li><li><a href="/branch-0.12/zh-CN/sql-reference/sql-statements/Data Manipulation/SHOW DATABASES.html" class="sidebar-link">SHOW DATABASES</a></li><li><a href="/branch-0.12/zh-CN/sql-reference/sql-statements/Data Manipulation/SHOW DELETE.html" class="sidebar-link">SHOW DELETE</a></li><li><a href="/branch-0.12/zh-CN/sql-reference/sql-statements/Data Manipulation/SHOW DYNAMIC PARTITION TABLES.html" class="sidebar-link">SHOW DYNAMIC PARTITION TABLES</a></li><li><a href="/branch-0.12/zh-CN/sql-reference/sql-statements/Data Manipulation/SHOW EXPORT.html" class="sidebar-link">SHOW EXPORT</a></li><li><a href="/branch-0.12/zh-CN/sql-reference/sql-statements/Data Manipulation/SHOW LOAD.html" class="sidebar-link">SHOW LOAD</a></li><li><a href="/branch-0.12/zh-CN/sql-reference/sql-statements/Data Manipulation/SHOW PARTITIONS.html" class="sidebar-link">SHOW PARTITIONS</a></li><li><a href="/branch-0.12/zh-CN/sql-reference/sql-statements/Data Manipulation/SHOW PROPERTY.html" class="sidebar-link">SHOW PROPERTY</a></li><li><a href="/branch-0.12/zh-CN/sql-reference/sql-statements/Data Manipulation/SHOW REPOSITORIES.html" class="sidebar-link">SHOW REPOSITORIES</a></li><li><a href="/branch-0.12/zh-CN/sql-reference/sql-statements/Data Manipulation/SHOW RESTORE.html" class="sidebar-link">SHOW RESTORE</a></li><li><a href="/branch-0.12/zh-CN/sql-reference/sql-statements/Data Manipulation/SHOW ROUTINE LOAD.html" class="sidebar-link">SHOW ROUTINE LOAD</a></li><li><a href="/branch-0.12/zh-CN/sql-reference/sql-statements/Data Manipulation/SHOW ROUTINE LOAD TASK.html" class="sidebar-link">SHOW ROUTINE LOAD TASK</a></li><li><a href="/branch-0.12/zh-CN/sql-reference/sql-statements/Data Manipulation/SHOW SNAPSHOT.html" class="sidebar-link">SHOW SNAPSHOT</a></li><li><a href="/branch-0.12/zh-CN/sql-reference/sql-statements/Data Manipulation/SHOW TABLES.html" class="sidebar-link">SHOW TABLES</a></li><li><a href="/branch-0.12/zh-CN/sql-reference/sql-statements/Data Manipulation/SHOW TABLET.html" class="sidebar-link">SHOW TABLET</a></li><li><a href="/branch-0.12/zh-CN/sql-reference/sql-statements/Data Manipulation/SHOW TRANSACTION.html" class="sidebar-link">SHOW TRANSACTION</a></li><li><a href="/branch-0.12/zh-CN/sql-reference/sql-statements/Data Manipulation/STOP ROUTINE LOAD.html" class="sidebar-link">STOP ROUTINE LOAD</a></li><li><a href="/branch-0.12/zh-CN/sql-reference/sql-statements/Data Manipulation/STREAM LOAD.html" class="sidebar-link">STREAM LOAD</a></li></ul></section></li><li><section class="sidebar-group collapsable is-sub-group depth-2"><p class="sidebar-heading"><span>数据类型</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable is-sub-group depth-2"><p class="sidebar-heading"><span>辅助命令</span> <span class="arrow right"></span></p> <!----></section></li></ul></section></li></ul></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>开发者手册</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>Apache 社区</span> <span class="arrow right"></span></p> <!----></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="load"><a href="#load" class="header-anchor">#</a> LOAD</h1> <h2 id="description"><a href="#description" class="header-anchor">#</a> description</h2> <div class="language- extra-class"><pre><code>Palo 目前支持以下4种导入方式：
+
+1. Hadoop Load：基于 MR 进行 ETL 的导入。
+2. Broker Load：使用 broker 进行进行数据导入。
+3. Mini Load：通过 http 协议上传文件进行批量数据导入。
+4. Stream Load：通过 http 协议进行流式数据导入。
+
+本帮助主要描述第一种导入方式，即 Hadoop Load 相关帮助信息。其余导入方式可以使用以下命令查看帮助：
+
+!!!该导入方式可能在后续某个版本即不再支持，建议使用其他导入方式进行数据导入。!!!
+
+1. help broker load;
+2. help mini load;
+3. help stream load;
+
+Hadoop Load 仅适用于百度内部环境。公有云、私有云以及开源环境无法使用这种导入方式。
+该导入方式必须设置用于 ETL 的 Hadoop 计算队列，设置方式可以通过 help set property 命令查看帮助。
+
+Stream load 暂时只支持百度内部用户使用。开源社区和公有云用户将在后续版本更新中支持。
+</code></pre></div><p>语法：</p> <div class="language- extra-class"><pre><code>LOAD LABEL load_label
+(
+data_desc1[, data_desc2, ...]
+)
+[opt_properties];
+
+1. load_label
+
+    当前导入批次的标签。在一个 database 内唯一。
+    语法：
+    [database_name.]your_label
+ 
+2. data_desc
+
+    用于描述一批导入数据。
+    语法：
+        DATA INFILE
+        (
+        &quot;file_path1&quot;[, file_path2, ...]
+        )
+        [NEGATIVE]
+        INTO TABLE `table_name`
+        [PARTITION (p1, p2)]
+        [COLUMNS TERMINATED BY &quot;column_separator&quot;]
+        [FORMAT AS &quot;file_type&quot;]
+        [(column_list)]
+        [COLUMNS FROM PATH AS (columns_from_path)]
+        [SET (k1 = func(k2))]
+
+    说明：
+        file_path: 
+
+        文件路径，可以指定到一个文件，也可以用 * 通配符指定某个目录下的所有文件。通配符必须匹配到文件，而不能是目录。
+
+        PARTITION:
+
+        如果指定此参数，则只会导入指定的分区，导入分区以外的数据会被过滤掉。
+        如果不指定，默认导入table的所有分区。
+    
+        NEGATIVE：
+        如果指定此参数，则相当于导入一批“负”数据。用于抵消之前导入的同一批数据。
+        该参数仅适用于存在 value 列，并且 value 列的聚合类型仅为 SUM 的情况。
+        
+        column_separator：
+
+        用于指定导入文件中的列分隔符。默认为 \t
+        如果是不可见字符，则需要加\\x作为前缀，使用十六进制来表示分隔符。
+        如hive文件的分隔符\x01，指定为&quot;\\x01&quot;
+        
+        file_type：
+
+        用于指定导入文件的类型，例如：parquet、orc、csv。默认值通过文件后缀名判断。 
+
+        column_list：
+
+        用于指定导入文件中的列和 table 中的列的对应关系。
+        当需要跳过导入文件中的某一列时，将该列指定为 table 中不存在的列名即可。
+        语法：
+        (col_name1, col_name2, ...)
+
+        columns_from_path:
+
+        用于指定需要从文件路径中解析的字段。
+        语法：
+        (col_from_path_name1, col_from_path_name2, ...)
+        
+        SET:
+
+        如果指定此参数，可以将源文件某一列按照函数进行转化，然后将转化后的结果导入到table中。
+        目前支持的函数有：
+
+            strftime(fmt, column) 日期转换函数
+                fmt: 日期格式，形如%Y%m%d%H%M%S (年月日时分秒)
+                column: column_list中的列，即输入文件中的列。存储内容应为数字型的时间戳。
+                    如果没有column_list，则按照palo表的列顺序默认输入文件的列。
+
+            time_format(output_fmt, input_fmt, column) 日期格式转化
+                output_fmt: 转化后的日期格式，形如%Y%m%d%H%M%S (年月日时分秒)
+                input_fmt: 转化前column列的日期格式，形如%Y%m%d%H%M%S (年月日时分秒)
+                column: column_list中的列，即输入文件中的列。存储内容应为input_fmt格式的日期字符串。
+                    如果没有column_list，则按照palo表的列顺序默认输入文件的列。
+
+            alignment_timestamp(precision, column) 将时间戳对齐到指定精度
+                precision: year|month|day|hour
+                column: column_list中的列，即输入文件中的列。存储内容应为数字型的时间戳。
+                    如果没有column_list，则按照palo表的列顺序默认输入文件的列。
+                    注意：对齐精度为year、month的时候，只支持20050101~20191231范围内的时间戳。
+
+            default_value(value) 设置某一列导入的默认值
+                不指定则使用建表时列的默认值
+
+            md5sum(column1, column2, ...) 将指定的导入列的值求md5sum，返回32位16进制字符串                                
+
+            replace_value(old_value[, new_value]) 将导入文件中指定的old_value替换为new_value
+                new_value如不指定则使用建表时列的默认值
+                
+            hll_hash(column) 用于将表或数据里面的某一列转化成HLL列的数据结构
+        
+3. opt_properties
+
+    用于指定一些特殊参数。
+    语法：
+    [PROPERTIES (&quot;key&quot;=&quot;value&quot;, ...)]
+    
+    可以指定如下参数：
+    cluster:          导入所使用的 Hadoop 计算队列。
+    timeout：         指定导入操作的超时时间。默认超时为3天。单位秒。
+    max_filter_ratio：最大容忍可过滤（数据不规范等原因）的数据比例。默认零容忍。
+    load_delete_flag：指定该导入是否通过导入key列的方式删除数据，仅适用于UNIQUE KEY，
+                      导入时可不指定value列。默认为false。
+
+5. 导入数据格式样例
+
+    整型类（TINYINT/SMALLINT/INT/BIGINT/LARGEINT）：1, 1000, 1234
+    浮点类（FLOAT/DOUBLE/DECIMAL）：1.1, 0.23, .356
+    日期类（DATE/DATETIME）：2017-10-03, 2017-06-13 12:34:03。
+    （注：如果是其他日期格式，可以在导入命令中，使用 strftime 或者 time_format 函数进行转换）
+    字符串类（CHAR/VARCHAR）：&quot;I am a student&quot;, &quot;a&quot;
+    NULL值：\N
+</code></pre></div><h2 id="example"><a href="#example" class="header-anchor">#</a> example</h2> <div class="language- extra-class"><pre><code>1. 导入一批数据，指定超时时间和过滤比例。指定导入队列为 my_cluster。
+
+    LOAD LABEL example_db.label1
+    (
+    DATA INFILE(&quot;hdfs://hdfs_host:hdfs_port/user/palo/data/input/file&quot;)
+    INTO TABLE `my_table`
+    )
+    PROPERTIES
+    (
+    &quot;cluster&quot; = &quot;my_cluster&quot;,
+    &quot;timeout&quot; = &quot;3600&quot;,
+    &quot;max_filter_ratio&quot; = &quot;0.1&quot;
+    );
+
+    其中 hdfs_host 为 namenode 的 host，hdfs_port 为 fs.defaultFS 端口（默认9000）
+
+2. 导入一批数据，包含多个文件。导入不同的 table，指定分隔符，指定列对应关系
+
+    LOAD LABEL example_db.label2
+    (
+    DATA INFILE(&quot;hdfs://hdfs_host:hdfs_port/user/palo/data/input/file1&quot;)
+    INTO TABLE `my_table_1`
+    COLUMNS TERMINATED BY &quot;,&quot;
+    (k1, k3, k2, v1, v2),
+    DATA INFILE(&quot;hdfs://hdfs_host:hdfs_port/user/palo/data/input/file2&quot;)
+    INTO TABLE `my_table_2`
+    COLUMNS TERMINATED BY &quot;\t&quot;
+    (k1, k2, k3, v2, v1)
+    );
+
+3. 导入一批数据，指定hive的默认分隔符\x01，并使用通配符*指定目录下的所有文件
+
+    LOAD LABEL example_db.label3
+    (
+    DATA INFILE(&quot;hdfs://hdfs_host:hdfs_port/user/palo/data/input/*&quot;)
+    NEGATIVE
+    INTO TABLE `my_table`
+    COLUMNS TERMINATED BY &quot;\\x01&quot;
+    );
+
+4. 导入一批“负”数据
+
+    LOAD LABEL example_db.label4
+    (
+    DATA INFILE(&quot;hdfs://hdfs_host:hdfs_port/user/palo/data/input/old_file)
+    NEGATIVE
+    INTO TABLE `my_table`
+    COLUMNS TERMINATED BY &quot;\t&quot;
+    );
+
+5. 导入一批数据，指定分区
+
+    LOAD LABEL example_db.label5
+    (
+    DATA INFILE(&quot;hdfs://hdfs_host:hdfs_port/user/palo/data/input/file&quot;)
+    INTO TABLE `my_table`
+    PARTITION (p1, p2)
+    COLUMNS TERMINATED BY &quot;,&quot;
+    (k1, k3, k2, v1, v2)
+    );
+
+6. 导入一批数据，指定分区, 并对导入文件的列做一些转化，如下：
+   表结构为：
+    k1 datetime
+    k2 date
+    k3 bigint
+    k4 varchar(20)
+    k5 varchar(64)
+    k6 int
+
+    假设数据文件只有一行数据，5列，逗号分隔：
+
+    1537002087,2018-08-09 11:12:13,1537002087,-,1
+
+    数据文件中各列，对应导入语句中指定的各列：
+    tmp_k1, tmp_k2, tmp_k3, k6, v1
+
+    转换如下：
+
+    1) k1：将 tmp_k1 时间戳列转化为 datetime 类型的数据
+    2) k2：将 tmp_k2 datetime 类型的数据转化为 date 的数据
+    3) k3：将 tmp_k3 时间戳列转化为天级别时间戳
+    4) k4：指定导入默认值为1
+    5) k5：将 tmp_k1、tmp_k2、tmp_k3 列计算 md5 值
+    6) k6：将导入文件中的 - 值替换为 10
+
+    LOAD LABEL example_db.label6
+    (
+    DATA INFILE(&quot;hdfs://hdfs_host:hdfs_port/user/palo/data/input/file&quot;)
+    INTO TABLE `my_table`
+    PARTITION (p1, p2)
+    COLUMNS TERMINATED BY &quot;,&quot;
+    (tmp_k1, tmp_k2, tmp_k3, k6, v1)
+    SET (
+      k1 = strftime(&quot;%Y-%m-%d %H:%M:%S&quot;, tmp_k1),
+      k2 = time_format(&quot;%Y-%m-%d %H:%M:%S&quot;, &quot;%Y-%m-%d&quot;, tmp_k2),
+      k3 = alignment_timestamp(&quot;day&quot;, tmp_k3), 
+      k4 = default_value(&quot;1&quot;), 
+      k5 = md5sum(tmp_k1, tmp_k2, tmp_k3),
+      k6 = replace_value(&quot;-&quot;, &quot;10&quot;)
+    )
+    );
+
+7. 导入数据到含有HLL列的表，可以是表中的列或者数据里面的列
+
+    LOAD LABEL example_db.label7
+    (
+    DATA INFILE(&quot;hdfs://hdfs_host:hdfs_port/user/palo/data/input/file&quot;)
+    INTO TABLE `my_table`
+    PARTITION (p1, p2)
+    COLUMNS TERMINATED BY &quot;,&quot;
+    SET (
+      v1 = hll_hash(k1),
+      v2 = hll_hash(k2)
+    )
+    );
+</code></pre></div><h2 id="keyword"><a href="#keyword" class="header-anchor">#</a> keyword</h2> <div class="language- extra-class"><pre><code>LOAD
+</code></pre></div></div> <footer class="page-edit"><div class="edit-link"><a href="https://github.com/apache/incubator-doris/edit/branch-0.12/docs/zh-CN/sql-reference/sql-statements/Data Manipulation/LOAD.md" target="_blank" rel="noopener noreferrer">在 GitHub 上编辑此页</a> <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></div> <div class="last-updated"><span class="prefix">Last Updated:</span> <span class="time">2020-4-28 12:58:13</span></div></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/branch-0.12/zh-CN/sql-reference/sql-statements/Data Manipulation/insert.html" class="prev">
+        INSERT
+      </a></span> <span class="next"><a href="/branch-0.12/zh-CN/sql-reference/sql-statements/Data Manipulation/MINI LOAD.html">
+        MINI LOAD
+      </a>
+      →
+    </span></p></div> <footer><div class="footer-wrapper"><br> <span class="footer-text">© Copyright 2020, Apache Doris(Incubating)</span> <br> <span class="footer-text">
+  Apache Doris(incubating) is an effort undergoing incubation at The Apache Software Foundation (ASF), sponsored by the Apache Incubator. Incubation is required of all newly accepted projects until a further review indicates that the infrastructure, communications, and decision making process have stabilized in a manner consistent with other successful ASF projects. While incubation status is not necessarily a reflection of the completeness or stability of the code, it does indicate that the project has yet to be fully endorsed by the ASF.</span></div></footer></main></div><div class="global-ui"></div></div>
+    <script src="/branch-0.12/assets/js/app.75381223.js" defer></script><script src="/branch-0.12/assets/js/4.52df3cb6.js" defer></script><script src="/branch-0.12/assets/js/3.dfdc1f39.js" defer></script><script src="/branch-0.12/assets/js/494.14ada05f.js" defer></script>
+  </body>
+</html>
