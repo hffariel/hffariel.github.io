@@ -1,7 +1,7 @@
 {
   "en": [
     {
-      "text": "Versions",
+      "text": "Documentation",
       "items": [
         {
           "text": "master",
@@ -18,7 +18,7 @@
   ],
   "zh-CN": [
     {
-      "text": "版本",
+      "text": "文档",
       "items": [
         {
           "text": "master",
